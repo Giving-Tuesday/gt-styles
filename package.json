@@ -1,0 +1,56 @@
+{
+  "name": "gt-styles",
+  "version": "1.0.0",
+  "description": "GivingTuesday Data Commons SCSS Framework - Reusable brand styles for WordPress, Reveal.js, Leaflet, React, and static SPAs",
+  "main": "dist/tokens/tokens.cjs",
+  "module": "dist/tokens/tokens.js",
+  "exports": {
+    ".": {
+      "import": "./dist/tokens/tokens.js",
+      "require": "./dist/tokens/tokens.cjs"
+    },
+    "./tokens": {
+      "import": "./dist/tokens/tokens.js",
+      "require": "./dist/tokens/tokens.cjs"
+    },
+    "./tokens.json": "./dist/tokens/tokens.json",
+    "./css/*": "./dist/css/*",
+    "./scss/*": "./scss/*"
+  },
+  "files": [
+    "dist",
+    "scss"
+  ],
+  "scripts": {
+    "build": "npm run build:css && npm run build:tokens",
+    "build:all": "npm run build && npm run build:docs",
+    "build:css": "sass scss:dist/css --style=compressed --no-source-map",
+    "build:css:expanded": "sass scss:dist/css --style=expanded",
+    "build:tokens": "node scripts/build-tokens.js",
+    "build:docs": "quarto render",
+    "preview": "quarto preview",
+    "watch": "sass scss:dist/css --watch",
+    "clean": "rm -rf dist docs"
+  },
+  "keywords": [
+    "givingtuesday",
+    "data-commons",
+    "scss",
+    "css",
+    "design-system",
+    "brand",
+    "reveal.js",
+    "leaflet",
+    "wordpress",
+    "react"
+  ],
+  "author": "GivingTuesday",
+  "license": "MIT",
+  "devDependencies": {
+    "sass": "^1.69.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/givingtuesday/gt-styles"
+  }
+}

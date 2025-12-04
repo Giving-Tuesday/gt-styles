@@ -1,0 +1,44 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "GivingTuesday Data Commons Styles"
+  favicon: favicon.ico
+  navbar:
+    background: "#001548"
+    foreground: "#ffffff"
+    logo: assets/gt-logo.svg
+    left:
+      - text: "Documentation"
+        href: index.qmd
+      - text: "Demos"
+        menu:
+          - text: "Brand PDF Style"
+            href: demos/brand-pdf-style.html
+          - text: "Website Style"
+            href: demos/website-style.html
+          - text: "Reveal.js Presentation"
+            href: demos/reveal-demo.html
+          - text: "Leaflet Map"
+            href: demos/leaflet-demo.html
+    right:
+      - icon: github
+        href: https://github.com/givingtuesday/gt-styles
+
+format:
+  html:
+    theme:
+      - cosmo
+      - scss/quarto-theme.scss
+    css: dist/css/modules/spa/gt-spa.css
+    toc: true
+    toc-depth: 3
+    code-copy: true
+    code-overflow: wrap
+    highlight-style: a11y
+
+# Copy demo files and CSS to output without processing
+resources:
+  - demos/*.html
+  - dist/css/**/*

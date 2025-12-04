@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+
+# Build outputs (regenerated from source)
+docs/
+dist/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor/IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Quarto
+.quarto/
+_freeze/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment
+.env
+.env.local
+
+# Temporary files
+*.tmp
+*.temp
+
+# Large binary files
+*.pdf

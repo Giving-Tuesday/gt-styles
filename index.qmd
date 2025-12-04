@@ -1,0 +1,9 @@
+---
+pagetitle: "GivingTuesday Data Commons Style Framework"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+---
+
+{{< include README.md >}}

@@ -1,0 +1,18 @@
+// =============================================================================
+// GIVINGTUESDAY STYLES - FULL BUNDLE
+// =============================================================================
+// Main entry point for the complete GT styles framework
+// Import this file to get everything at once
+// =============================================================================
+
+// Core (variables, functions, mixins, custom properties, typography)
+@use 'core';
+
+// Note: Platform-specific modules should be imported separately as needed:
+// - @use 'modules/reveal/gt-reveal' for Reveal.js presentations
+// - @use 'modules/leaflet/gt-leaflet' for Leaflet maps
+// - @use 'modules/wordpress/gt-wordpress' for WordPress themes
+// - @use 'modules/react/gt-react' for React applications
+// - @use 'modules/spa/gt-spa' for static single-page applications
+//
+// This keeps the bundle size minimal - only include what you need.

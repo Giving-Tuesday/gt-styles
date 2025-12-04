@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GivingTuesday Data Commons - Reveal.js Presentation Demo</title>
+
+  <!-- Reveal.js CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/dist/reveal.css">
+
+  <!-- GT Reveal Theme (would normally be compiled CSS) -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Inline GT Reveal theme for demo purposes */
+    /* In production, use the compiled gt-reveal.css */
+
+    :root {
+      --gt-red: #ED132E;
+      --gt-navy: #001548;
+      --gt-lavender: #CAC7F8;
+      --gt-light-blue: #6CF4FF;
+      --gt-beige: #FDF7F7;
+      --gt-teal: #0fb5c3;
+      --gt-white: #ffffff;
+      --gt-copy: #1b1a19;
+    }
+
+    .reveal-viewport {
+      background: var(--gt-beige);
+    }
+
+    .reveal {
+      font-family: Georgia, serif;
+      font-size: 42px;
+      color: var(--gt-navy);
+    }
+
+    .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      color: var(--gt-navy);
+      margin: 0 0 32px 0;
+      line-height: 1.1;
+      text-transform: none;
+    }
+
+    .reveal h1 { font-size: 2.5em; }
+    .reveal h2 { font-size: 1.6em; }
+    .reveal h3 { font-size: 1.3em; font-weight: 500; }
+
+    .reveal p {
+      line-height: 1.4;
+      margin: 32px 0;
+    }
+
+    .reveal a {
+      color: var(--gt-teal);
+      text-decoration: none;
+    }
+
+    .reveal a:hover {
+      text-decoration: underline;
+    }
+
+    .reveal ul, .reveal ol {
+      text-align: left;
+      margin-left: 32px;
+    }
+
+    .reveal li {
+      margin-bottom: 16px;
+    }
+
+    .reveal blockquote {
+      background: rgba(202, 199, 248, 0.3);
+      border-left: 4px solid var(--gt-red);
+      padding: 16px 32px;
+      font-style: italic;
+      margin: 32px auto;
+      width: 70%;
+    }
+
+    .reveal pre {
+      font-size: 0.55em;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    }
+
+    .reveal pre code {
+      display: block;
+      padding: 24px;
+      background: var(--gt-navy);
+      color: var(--gt-white);
+      border-radius: 8px;
+    }
+
+    .reveal .progress {
+      background: rgba(0, 21, 72, 0.2);
+      color: var(--gt-red);
+    }
+
+    .reveal .progress span {
+      background: var(--gt-red);
+    }
+
+    /* Slide variants */
+    .reveal section.title-slide h1 {
+      color: var(--gt-red);
+      font-size: 3em;
+    }
+
+    .reveal section.title-slide h2 {
+      font-weight: 400;
+      font-size: 1.2em;
+    }
+
+    .reveal section.section-header {
+      background: var(--gt-navy);
+      color: var(--gt-white);
+    }
+
+    .reveal section.section-header h2 {
+      color: var(--gt-white);
+    }
+
+    .reveal section.red-accent {
+      background: var(--gt-red);
+      color: var(--gt-white);
+    }
+
+    .reveal section.red-accent h2,
+    .reveal section.red-accent h3 {
+      color: var(--gt-white);
+    }
+
+    .reveal section.light-blue-bg {
+      background: var(--gt-light-blue);
+    }
+
+    /* Utility classes */
+    .reveal .label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.5em;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gt-red);
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .reveal .columns {
+      display: flex;
+      gap: 48px;
+    }
+
+    .reveal .column {
+      flex: 1;
+    }
+
+    .reveal .text-red { color: var(--gt-red); }
+    .reveal .text-teal { color: var(--gt-teal); }
+
+    .reveal .stat {
+      text-align: center;
+    }
+
+    .reveal .stat-number {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3em;
+      font-weight: 700;
+      color: var(--gt-red);
+      line-height: 1;
+    }
+
+    .reveal .stat-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.5em;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--gt-navy);
+      margin-top: 8px;
+    }
+
+    .reveal img {
+      border-radius: 24px;
+    }
+
+    .reveal figure {
+      margin: 0;
+    }
+
+    .reveal figcaption {
+      font-size: 0.5em;
+      color: var(--gt-copy);
+      margin-top: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- Title Slide -->
+      <section class="title-slide">
+        <span class="label">GivingTuesday Data Commons</span>
+        <h1>The State of Generosity</h1>
+        <h2>2024 Annual Report Findings</h2>
+        <p style="font-size: 0.6em; margin-top: 64px; color: var(--gt-copy);">
+          December 2024 | Research Team
+        </p>
+      </section>
+
+      <!-- Overview Section Header -->
+      <section class="section-header">
+        <h2>Overview</h2>
+        <p style="color: rgba(255,255,255,0.8);">Key findings from our annual research</p>
+      </section>
+
+      <!-- Key Stats -->
+      <section>
+        <span class="label">2024 Impact</span>
+        <h2>Record-Breaking Year</h2>
+        <div class="columns" style="margin-top: 48px;">
+          <div class="stat">
+            <div class="stat-number">$3.1B</div>
+            <div class="stat-label">Total Donated</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">35M</div>
+            <div class="stat-label">Participants</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">80+</div>
+            <div class="stat-label">Countries</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Growth Chart Placeholder -->
+      <section>
+        <span class="label">Year Over Year</span>
+        <h2>Consistent Growth</h2>
+        <div style="background: linear-gradient(135deg, var(--gt-beige) 0%, #fff 100%); height: 300px; border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-top: 32px;">
+          <p style="color: var(--gt-copy); font-size: 0.7em;">[Growth Chart Visualization]</p>
+        </div>
+        <p style="font-size: 0.6em;">12% increase in participation from 2023</p>
+      </section>
+
+      <!-- Quote Slide -->
+      <section>
+        <blockquote>
+          "Generosity is not just about money—it's about time, talent, and the
+          simple act of caring for others in our communities."
+        </blockquote>
+        <p style="font-size: 0.6em; color: var(--gt-copy);">— Asha Curran, CEO of GivingTuesday</p>
+      </section>
+
+      <!-- Findings Section Header -->
+      <section class="section-header">
+        <h2>Key Findings</h2>
+      </section>
+
+      <!-- Finding 1 -->
+      <section>
+        <span class="label">Finding 1</span>
+        <h2>Digital Giving Dominates</h2>
+        <div class="columns">
+          <div class="column">
+            <ul>
+              <li>78% of donations made online</li>
+              <li>Mobile giving up 23%</li>
+              <li>Social media referrals doubled</li>
+              <li>Peer-to-peer fundraising grew 45%</li>
+            </ul>
+          </div>
+          <div class="column">
+            <div class="stat">
+              <div class="stat-number">78%</div>
+              <div class="stat-label">Online Donations</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Finding 2 -->
+      <section>
+        <span class="label">Finding 2</span>
+        <h2>Gen Z Rising</h2>
+        <p>Young donors (18-25) showed the highest growth rate in participation:</p>
+        <ul>
+          <li>42% increase in Gen Z donors</li>
+          <li>Average gift: $45</li>
+          <li>Most likely to donate via social media</li>
+          <li>Strong preference for cause-specific giving</li>
+        </ul>
+      </section>
+
+      <!-- Finding 3 -->
+      <section>
+        <span class="label">Finding 3</span>
+        <h2>Local Impact Focus</h2>
+        <div class="columns">
+          <div class="column">
+            <figure>
+              <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=400&h=300&fit=crop" alt="Community giving">
+              <figcaption>Community-focused initiatives saw 35% more engagement</figcaption>
+            </figure>
+          </div>
+          <div class="column" style="text-align: left;">
+            <p style="font-size: 0.8em;">Donors increasingly want to see tangible local impact:</p>
+            <ul style="font-size: 0.7em;">
+              <li>Community foundations +28%</li>
+              <li>Local food banks +45%</li>
+              <li>Neighborhood programs +32%</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Regional Breakdown -->
+      <section class="light-blue-bg">
+        <span class="label">Regional Data</span>
+        <h2>Global Participation</h2>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 32px;">
+          <div class="stat" style="background: white; padding: 24px; border-radius: 16px;">
+            <div class="stat-number" style="font-size: 2em;">45%</div>
+            <div class="stat-label">North America</div>
+          </div>
+          <div class="stat" style="background: white; padding: 24px; border-radius: 16px;">
+            <div class="stat-number" style="font-size: 2em;">28%</div>
+            <div class="stat-label">Europe</div>
+          </div>
+          <div class="stat" style="background: white; padding: 24px; border-radius: 16px;">
+            <div class="stat-number" style="font-size: 2em;">15%</div>
+            <div class="stat-label">Asia Pacific</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Slide -->
+      <section class="red-accent">
+        <h2>Join the Movement</h2>
+        <p style="opacity: 0.9;">Access the full report and raw data at</p>
+        <p style="font-family: Montserrat; font-size: 1.2em; margin-top: 32px;">
+          data.givingtuesday.org
+        </p>
+      </section>
+
+      <!-- Thank You -->
+      <section class="title-slide">
+        <h1 style="font-size: 2em;">Thank You</h1>
+        <p style="font-size: 0.7em; margin-top: 48px;">
+          Questions? Contact: research@givingtuesday.org
+        </p>
+        <p style="font-size: 0.5em; color: var(--gt-copy); margin-top: 32px;">
+          GivingTuesday Data Commons | December 2024
+        </p>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/dist/reveal.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      slideNumber: true,
+      transition: 'slide',
+      backgroundTransition: 'fade'
+    });
+  </script>
+</body>
+</html>

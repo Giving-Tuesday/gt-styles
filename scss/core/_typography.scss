@@ -1,0 +1,222 @@
+// =============================================================================
+// TYPOGRAPHY
+// =============================================================================
+
+@use 'variables' as *;
+
+// -----------------------------------------------------------------------------
+// FONT IMPORTS (Google Fonts)
+// -----------------------------------------------------------------------------
+
+// Montserrat - Primary font
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+// Note: Georgia is a system font, no import needed
+
+// -----------------------------------------------------------------------------
+// BASE TYPOGRAPHY STYLES
+// -----------------------------------------------------------------------------
+
+.gt-typography {
+  // Headings
+  h1, .h1 {
+    font-family: var(--font-family-primary);
+    font-weight: var(--font-weight-semibold);
+    font-size: clamp(40px, 6vw, var(--font-size-h1));
+    line-height: var(--line-height-headline);
+    color: var(--gt-navy);
+    margin-top: 0;
+    margin-bottom: $spacer-4;
+  }
+
+  h2, .h2 {
+    font-family: var(--font-family-primary);
+    font-weight: var(--font-weight-semibold);
+    font-size: clamp(32px, 5vw, var(--font-size-h2));
+    line-height: var(--line-height-headline);
+    color: var(--gt-navy);
+    margin-top: 0;
+    margin-bottom: $spacer-3;
+  }
+
+  h3, .h3 {
+    font-family: var(--font-family-primary);
+    font-weight: var(--font-weight-regular);
+    font-size: clamp(24px, 4vw, var(--font-size-h3));
+    line-height: var(--line-height-subhead);
+    color: var(--gt-navy);
+    margin-top: 0;
+    margin-bottom: $spacer-3;
+  }
+
+  h4, .h4 {
+    font-family: var(--font-family-primary);
+    font-weight: var(--font-weight-medium);
+    font-size: clamp(20px, 3vw, var(--font-size-h4));
+    line-height: var(--line-height-subhead);
+    color: var(--gt-navy);
+    margin-top: 0;
+    margin-bottom: $spacer-2;
+  }
+
+  h5, .h5,
+  h6, .h6 {
+    font-family: var(--font-family-primary);
+    font-weight: var(--font-weight-medium);
+    font-size: clamp(16px, 2vw, var(--font-size-h5));
+    line-height: var(--line-height-label);
+    color: var(--gt-navy);
+    margin-top: 0;
+    margin-bottom: $spacer-2;
+  }
+
+  // Body text
+  p {
+    font-family: var(--font-family-secondary);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-body);
+    margin-top: 0;
+    margin-bottom: $spacer-3;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  // Lead paragraph
+  .lead {
+    font-size: var(--font-size-label);
+    line-height: var(--line-height-body);
+  }
+
+  // Small text
+  small, .small {
+    font-size: var(--font-size-small);
+  }
+
+  // Strong
+  strong, b {
+    font-weight: var(--font-weight-bold);
+  }
+
+  // Emphasis
+  em, i {
+    font-style: italic;
+  }
+
+  // Links
+  a {
+    color: var(--color-link);
+    text-decoration: none;
+    transition: var(--transition-fast);
+
+    &:hover,
+    &:focus {
+      color: var(--color-link-hover);
+      text-decoration: underline;
+    }
+  }
+
+  // Lists
+  ul, ol {
+    padding-left: $spacer-4;
+    margin-top: 0;
+    margin-bottom: $spacer-3;
+
+    li {
+      margin-bottom: $spacer-1;
+      line-height: var(--line-height-body);
+    }
+  }
+
+  // Blockquote
+  blockquote {
+    border-left: 4px solid var(--gt-red);
+    padding-left: $spacer-4;
+    margin: $spacer-4 0;
+    font-family: var(--font-family-primary);
+    font-size: clamp(18px, 2.5vw, 24px);
+    font-style: italic;
+    color: var(--gt-navy);
+
+    cite {
+      display: block;
+      margin-top: $spacer-2;
+      font-size: 14px;
+      font-style: normal;
+      color: var(--gt-copy);
+    }
+  }
+
+  // Code
+  code {
+    font-family: var(--font-family-mono);
+    font-size: 0.875em;
+    background-color: var(--gt-beige);
+    padding: 2px 6px;
+    border-radius: var(--border-radius-sm);
+  }
+
+  pre {
+    font-family: var(--font-family-mono);
+    font-size: 14px;
+    background-color: var(--gt-navy);
+    color: var(--gt-white);
+    padding: $spacer-3;
+    border-radius: var(--border-radius-md);
+    overflow-x: auto;
+
+    code {
+      background: none;
+      padding: 0;
+      color: inherit;
+    }
+  }
+
+  // Horizontal rule
+  hr {
+    border: none;
+    border-top: 1px solid var(--gt-divider);
+    margin: $spacer-6 0;
+  }
+
+  // Labels/Overlines
+  .label,
+  .overline {
+    font-family: var(--font-family-primary);
+    font-weight: var(--font-weight-regular);
+    font-size: clamp(12px, 1.5vw, var(--font-size-label));
+    line-height: var(--line-height-label);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wide);
+    color: var(--gt-red);
+  }
+
+  // Caption
+  .caption {
+    font-size: var(--font-size-small);
+    color: var(--gt-copy);
+  }
+}
+
+// -----------------------------------------------------------------------------
+// STANDALONE TYPOGRAPHY CLASSES
+// -----------------------------------------------------------------------------
+
+.gt-label {
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-regular);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+.gt-body {
+  font-family: var(--font-family-secondary);
+  line-height: var(--line-height-body);
+}
+
+.gt-display {
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-headline);
+}

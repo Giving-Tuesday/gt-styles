@@ -1,0 +1,267 @@
+// =============================================================================
+// SCSS HELPER FUNCTIONS
+// =============================================================================
+// Utility functions for calculations, color manipulation, and validation
+// =============================================================================
+
+@use 'sass:math';
+@use 'sass:color';
+@use 'sass:list';
+@use 'sass:map';
+@use 'variables' as *;
+
+// -----------------------------------------------------------------------------
+// SPACING FUNCTIONS
+// -----------------------------------------------------------------------------
+
+/// Calculate spacing based on the 8px base unit
+/// @param {Number} $multiplier - The multiplier for the base unit
+/// @return {Number} - The calculated spacing value
+@function gt-space($multiplier) {
+  @return $spacer-base * $multiplier;
+}
+
+/// Get a spacer value from the spacers map
+/// @param {Number} $key - The spacer key (0, 1, 2, 3, etc.)
+/// @return {Number} - The spacer value
+@function spacer($key) {
+  @if map.has-key($spacers, $key) {
+    @return map.get($spacers, $key);
+  }
+  @warn "Spacer key `#{$key}` not found. Using base spacer.";
+  @return $spacer-base;
+}
+
+// -----------------------------------------------------------------------------
+// COLOR FUNCTIONS
+// -----------------------------------------------------------------------------
+
+/// Get a color from the colors map
+/// @param {String} $name - The color name
+/// @return {Color} - The color value
+@function gt-color($name) {
+  @if map.has-key($gt-colors, $name) {
+    @return map.get($gt-colors, $name);
+  }
+  @warn "Color `#{$name}` not found in $gt-colors map.";
+  @return null;
+}
+
+/// Get a theme color
+/// @param {String} $name - The theme color name
+/// @return {Color} - The theme color value
+@function theme-color($name) {
+  @if map.has-key($theme-colors, $name) {
+    @return map.get($theme-colors, $name);
+  }
+  @warn "Theme color `#{$name}` not found.";
+  @return null;
+}
+
+/// Lighten a color by a percentage
+/// @param {Color} $color - The base color
+/// @param {Number} $amount - The percentage to lighten (0-100)
+/// @return {Color} - The lightened color
+@function gt-lighten($color, $amount) {
+  @return color.mix(white, $color, $amount);
+}
+
+/// Darken a color by a percentage
+/// @param {Color} $color - The base color
+/// @param {Number} $amount - The percentage to darken (0-100)
+/// @return {Color} - The darkened color
+@function gt-darken($color, $amount) {
+  @return color.mix(black, $color, $amount);
+}
+
+/// Create a transparent version of a color
+/// @param {Color} $color - The base color
+/// @param {Number} $opacity - The opacity value (0-1)
+/// @return {Color} - The transparent color
+@function gt-alpha($color, $opacity) {
+  @return rgba($color, $opacity);
+}
+
+/// Calculate contrast color (black or white) for a given background
+/// @param {Color} $background - The background color
+/// @return {Color} - Either black or white for best contrast
+@function contrast-color($background) {
+  $luminance: (
+    color.red($background) * 0.299 +
+    color.green($background) * 0.587 +
+    color.blue($background) * 0.114
+  ) / 255;
+
+  @if $luminance > 0.5 {
+    @return $gt-black;
+  } @else {
+    @return $gt-white;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// TYPOGRAPHY FUNCTIONS
+// -----------------------------------------------------------------------------
+
+/// Get a font size from the font-sizes map
+/// @param {String} $size - The size key (xs, sm, base, md, lg, etc.)
+/// @return {Number} - The font size value
+@function font-size($size) {
+  @if map.has-key($font-sizes, $size) {
+    @return map.get($font-sizes, $size);
+  }
+  @warn "Font size `#{$size}` not found.";
+  @return $font-size-base;
+}
+
+/// Get a line height value
+/// @param {String} $name - The line height name
+/// @return {Number} - The line height value
+@function line-height($name) {
+  @if map.has-key($line-heights, $name) {
+    @return map.get($line-heights, $name);
+  }
+  @warn "Line height `#{$name}` not found.";
+  @return $line-height-base;
+}
+
+/// Convert px to rem
+/// @param {Number} $px - The pixel value
+/// @return {Number} - The rem value
+@function px-to-rem($px) {
+  @return math.div($px, $font-size-root) * 1rem;
+}
+
+/// Convert rem to px
+/// @param {Number} $rem - The rem value
+/// @return {Number} - The pixel value
+@function rem-to-px($rem) {
+  @return math.div($rem, 1rem) * $font-size-root;
+}
+
+// -----------------------------------------------------------------------------
+// BORDER RADIUS FUNCTIONS
+// -----------------------------------------------------------------------------
+
+/// Get a border radius value
+/// @param {String} $size - The size key
+/// @return {Number} - The border radius value
+@function radius($size) {
+  @if map.has-key($border-radii, $size) {
+    @return map.get($border-radii, $size);
+  }
+  @warn "Border radius `#{$size}` not found.";
+  @return $border-radius-md;
+}
+
+// -----------------------------------------------------------------------------
+// SHADOW FUNCTIONS
+// -----------------------------------------------------------------------------
+
+/// Get a shadow value
+/// @param {String} $size - The size key (sm, md, lg, xl)
+/// @return {String} - The shadow value
+@function shadow($size) {
+  @if map.has-key($shadows, $size) {
+    @return map.get($shadows, $size);
+  }
+  @warn "Shadow `#{$size}` not found.";
+  @return $shadow-md;
+}
+
+// -----------------------------------------------------------------------------
+// BREAKPOINT FUNCTIONS
+// -----------------------------------------------------------------------------
+
+/// Get a breakpoint value
+/// @param {String} $name - The breakpoint name
+/// @return {Number} - The breakpoint value
+@function breakpoint($name) {
+  @if map.has-key($breakpoints, $name) {
+    @return map.get($breakpoints, $name);
+  }
+  @warn "Breakpoint `#{$name}` not found.";
+  @return 0;
+}
+
+/// Get the next breakpoint
+/// @param {String} $name - The current breakpoint name
+/// @return {String|Null} - The next breakpoint name or null
+@function breakpoint-next($name) {
+  $breakpoint-names: map.keys($breakpoints);
+  $n: list.index($breakpoint-names, $name);
+
+  @if $n != null and $n < list.length($breakpoint-names) {
+    @return list.nth($breakpoint-names, $n + 1);
+  }
+
+  @return null;
+}
+
+// -----------------------------------------------------------------------------
+// CONTAINER FUNCTIONS
+// -----------------------------------------------------------------------------
+
+/// Get container max width
+/// @param {String} $size - The size key
+/// @return {Number} - The max width value
+@function container-width($size) {
+  @if map.has-key($container-max-widths, $size) {
+    @return map.get($container-max-widths, $size);
+  }
+  @warn "Container width `#{$size}` not found.";
+  @return 100%;
+}
+
+// -----------------------------------------------------------------------------
+// VALIDATION FUNCTIONS
+// -----------------------------------------------------------------------------
+
+/// Check if a color is suitable for typography
+/// @param {Color} $color - The color to check
+/// @return {Boolean} - Whether the color is suitable for text
+@function is-typography-safe($color) {
+  @each $unsafe-color in $non-typography-colors {
+    @if $color == $unsafe-color {
+      @return false;
+    }
+  }
+  @return true;
+}
+
+/// Check if two colors can be combined
+/// @param {Color} $color1 - First color
+/// @param {Color} $color2 - Second color
+/// @return {Boolean} - Whether the combination is allowed
+@function is-valid-color-combo($color1, $color2) {
+  @each $pair in $forbidden-color-pairs {
+    $forbidden1: list.nth($pair, 1);
+    $forbidden2: list.nth($pair, 2);
+
+    @if ($color1 == $forbidden1 and $color2 == $forbidden2) or
+        ($color1 == $forbidden2 and $color2 == $forbidden1) {
+      @return false;
+    }
+  }
+  @return true;
+}
+
+// -----------------------------------------------------------------------------
+// UTILITY FUNCTIONS
+// -----------------------------------------------------------------------------
+
+/// Strip unit from a number
+/// @param {Number} $value - A number with unit
+/// @return {Number} - The number without unit
+@function strip-unit($value) {
+  @return math.div($value, $value * 0 + 1);
+}
+
+/// Clamp a value between min and max
+/// @param {Number} $value - The value to clamp
+/// @param {Number} $min - Minimum value
+/// @param {Number} $max - Maximum value
+/// @return {Number} - The clamped value
+@function gt-clamp($value, $min, $max) {
+  @return math.max($min, math.min($value, $max));
+}

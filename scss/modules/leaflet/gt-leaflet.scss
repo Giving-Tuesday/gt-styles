@@ -1,0 +1,514 @@
+// =============================================================================
+// GIVINGTUESDAY LEAFLET MAP STYLES
+// =============================================================================
+// Custom styles for Leaflet.js maps following GT brand guidelines
+// Usage: Import after Leaflet's default CSS
+// =============================================================================
+
+@use '../../core' as *;
+
+// -----------------------------------------------------------------------------
+// MAP CONTAINER
+// -----------------------------------------------------------------------------
+
+.gt-map {
+  font-family: $font-family-primary;
+  border-radius: $border-radius-lg;
+  overflow: hidden;
+  box-shadow: $shadow-md;
+
+  // Full-width map variant
+  &--full {
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  // Card-style map
+  &--card {
+    border-radius: $border-radius-xl;
+    box-shadow: $shadow-lg;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// LEAFLET OVERRIDES
+// -----------------------------------------------------------------------------
+
+// Popup styles
+.leaflet-popup-content-wrapper {
+  font-family: $font-family-primary;
+  border-radius: $border-radius-lg;
+  box-shadow: $shadow-lg;
+  padding: 0;
+
+  .leaflet-popup-content {
+    margin: $spacer-3 $spacer-4;
+    font-size: 14px;
+    line-height: $line-height-body;
+    color: $gt-navy;
+
+    p {
+      margin: $spacer-2 0;
+
+      &:first-child { margin-top: 0; }
+      &:last-child { margin-bottom: 0; }
+    }
+
+    a {
+      color: $gt-teal;
+      text-decoration: none;
+      transition: $transition-fast;
+
+      &:hover {
+        color: $gt-teal-hover;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.leaflet-popup-tip {
+  box-shadow: $shadow-sm;
+}
+
+// Close button
+.leaflet-popup-close-button {
+  color: $gt-copy !important;
+  font-size: 20px !important;
+  padding: $spacer-2 !important;
+  width: auto !important;
+  height: auto !important;
+
+  &:hover {
+    color: $gt-navy !important;
+  }
+}
+
+// Tooltip styles
+.leaflet-tooltip {
+  font-family: $font-family-primary;
+  font-size: 12px;
+  padding: $spacer-1 $spacer-2;
+  background: $gt-navy;
+  color: $gt-white;
+  border: none;
+  border-radius: $border-radius-sm;
+  box-shadow: $shadow-md;
+
+  &.leaflet-tooltip-left::before {
+    border-left-color: $gt-navy;
+  }
+
+  &.leaflet-tooltip-right::before {
+    border-right-color: $gt-navy;
+  }
+
+  &.leaflet-tooltip-top::before {
+    border-top-color: $gt-navy;
+  }
+
+  &.leaflet-tooltip-bottom::before {
+    border-bottom-color: $gt-navy;
+  }
+}
+
+// Control buttons
+.leaflet-control-zoom {
+  border: none !important;
+  box-shadow: $shadow-md !important;
+  border-radius: $border-radius-md !important;
+  overflow: hidden;
+
+  a {
+    background: $gt-white !important;
+    color: $gt-navy !important;
+    border: none !important;
+    width: 36px !important;
+    height: 36px !important;
+    line-height: 36px !important;
+    font-size: 18px !important;
+    font-weight: $font-weight-bold !important;
+    transition: $transition-fast !important;
+
+    &:hover {
+      background: $gt-beige !important;
+      color: $gt-navy !important;
+    }
+
+    &:first-child {
+      border-radius: $border-radius-md $border-radius-md 0 0 !important;
+      border-bottom: 1px solid $gt-divider !important;
+    }
+
+    &:last-child {
+      border-radius: 0 0 $border-radius-md $border-radius-md !important;
+    }
+
+    &.leaflet-disabled {
+      background: $gt-light-bg !important;
+      color: $gt-divider !important;
+    }
+  }
+}
+
+// Attribution
+.leaflet-control-attribution {
+  font-family: $font-family-primary;
+  font-size: 10px;
+  background: gt-alpha($gt-white, 0.8) !important;
+  padding: $spacer-1 $spacer-2;
+  border-radius: $border-radius-sm 0 0 0;
+
+  a {
+    color: $gt-teal;
+
+    &:hover {
+      color: $gt-teal-hover;
+    }
+  }
+}
+
+// Scale
+.leaflet-control-scale-line {
+  font-family: $font-family-primary;
+  font-size: 10px;
+  border-color: $gt-navy !important;
+  background: gt-alpha($gt-white, 0.8) !important;
+  padding: 2px $spacer-1;
+}
+
+// Layers control
+.leaflet-control-layers {
+  border: none !important;
+  box-shadow: $shadow-md !important;
+  border-radius: $border-radius-md !important;
+  font-family: $font-family-primary;
+  font-size: 13px;
+
+  .leaflet-control-layers-toggle {
+    width: 36px !important;
+    height: 36px !important;
+    background-size: 20px 20px !important;
+    background-color: $gt-white !important;
+    border-radius: $border-radius-md !important;
+  }
+
+  &-expanded {
+    padding: $spacer-2 $spacer-3;
+    background: $gt-white !important;
+  }
+
+  .leaflet-control-layers-separator {
+    border-color: $gt-divider;
+    margin: $spacer-2 0;
+  }
+
+  label {
+    margin-bottom: $spacer-1;
+    color: $gt-navy;
+
+    span {
+      margin-left: $spacer-1;
+    }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// CUSTOM MARKERS
+// -----------------------------------------------------------------------------
+
+// Default GT marker
+.gt-marker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: $gt-red;
+  border: 3px solid $gt-white;
+  border-radius: $border-radius-full;
+  box-shadow: $shadow-md;
+  color: $gt-white;
+  font-family: $font-family-primary;
+  font-size: 14px;
+  font-weight: $font-weight-bold;
+  transition: $transition-fast;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  // Size variants
+  &--sm {
+    width: 24px;
+    height: 24px;
+    font-size: 11px;
+  }
+
+  &--lg {
+    width: 44px;
+    height: 44px;
+    font-size: 18px;
+  }
+
+  // Color variants
+  &--navy {
+    background: $gt-navy;
+  }
+
+  &--teal {
+    background: $gt-teal;
+  }
+
+  // With icon
+  &--icon {
+    padding: 0;
+
+    svg {
+      width: 60%;
+      height: 60%;
+      fill: currentColor;
+    }
+  }
+}
+
+// Cluster marker
+.gt-cluster {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $gt-navy;
+  border: 3px solid $gt-white;
+  border-radius: $border-radius-full;
+  box-shadow: $shadow-lg;
+  color: $gt-white;
+  font-family: $font-family-primary;
+  font-weight: $font-weight-bold;
+
+  &--sm {
+    width: 36px;
+    height: 36px;
+    font-size: 12px;
+  }
+
+  &--md {
+    width: 44px;
+    height: 44px;
+    font-size: 14px;
+  }
+
+  &--lg {
+    width: 52px;
+    height: 52px;
+    font-size: 16px;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// CUSTOM POPUP STYLES
+// -----------------------------------------------------------------------------
+
+.gt-popup {
+  min-width: 200px;
+  max-width: 300px;
+
+  &__header {
+    @include label-text;
+    color: $gt-red;
+    margin-bottom: $spacer-1;
+  }
+
+  &__title {
+    font-size: 16px;
+    font-weight: $font-weight-semibold;
+    color: $gt-navy;
+    margin: 0 0 $spacer-2;
+  }
+
+  &__content {
+    font-size: 14px;
+    color: $gt-copy;
+    line-height: $line-height-body;
+  }
+
+  &__stat {
+    display: flex;
+    justify-content: space-between;
+    padding: $spacer-1 0;
+    border-bottom: 1px solid $gt-divider;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__stat-label {
+    color: $gt-copy;
+  }
+
+  &__stat-value {
+    font-weight: $font-weight-semibold;
+    color: $gt-navy;
+  }
+
+  &__link {
+    display: inline-block;
+    margin-top: $spacer-2;
+    color: $gt-teal;
+    font-weight: $font-weight-medium;
+    text-decoration: none;
+
+    &:hover {
+      color: $gt-teal-hover;
+      text-decoration: underline;
+    }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// LEGEND COMPONENT
+// -----------------------------------------------------------------------------
+
+.gt-legend {
+  background: $gt-white;
+  padding: $spacer-3;
+  border-radius: $border-radius-md;
+  box-shadow: $shadow-md;
+  font-family: $font-family-primary;
+  font-size: 12px;
+
+  &__title {
+    font-weight: $font-weight-semibold;
+    color: $gt-navy;
+    margin-bottom: $spacer-2;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: $spacer-2;
+    margin-bottom: $spacer-1;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__color {
+    width: 16px;
+    height: 16px;
+    border-radius: $border-radius-sm;
+    flex-shrink: 0;
+  }
+
+  &__label {
+    color: $gt-copy;
+  }
+
+  // Gradient legend
+  &__gradient {
+    height: 12px;
+    border-radius: $border-radius-sm;
+    margin-bottom: $spacer-1;
+  }
+
+  &__scale {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    color: $gt-copy;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// INFO PANEL
+// -----------------------------------------------------------------------------
+
+.gt-info-panel {
+  position: absolute;
+  top: $spacer-2;
+  right: $spacer-2;
+  z-index: 1000;
+  background: $gt-white;
+  padding: $spacer-4;
+  border-radius: $border-radius-lg;
+  box-shadow: $shadow-lg;
+  max-width: 280px;
+  font-family: $font-family-primary;
+
+  &__title {
+    font-size: 18px;
+    font-weight: $font-weight-semibold;
+    color: $gt-navy;
+    margin: 0 0 $spacer-2;
+  }
+
+  &__content {
+    font-size: 14px;
+    color: $gt-copy;
+    line-height: $line-height-body;
+  }
+
+  &__close {
+    position: absolute;
+    top: $spacer-2;
+    right: $spacer-2;
+    background: none;
+    border: none;
+    color: $gt-copy;
+    cursor: pointer;
+    padding: $spacer-1;
+    font-size: 18px;
+    line-height: 1;
+
+    &:hover {
+      color: $gt-navy;
+    }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// CHOROPLETH PALETTE
+// -----------------------------------------------------------------------------
+
+// Red scale (for intensity data)
+.choropleth-red {
+  &-1 { fill: #{gt-alpha($gt-red, 0.1)}; }
+  &-2 { fill: #{gt-alpha($gt-red, 0.25)}; }
+  &-3 { fill: #{gt-alpha($gt-red, 0.4)}; }
+  &-4 { fill: #{gt-alpha($gt-red, 0.6)}; }
+  &-5 { fill: #{gt-alpha($gt-red, 0.8)}; }
+  &-6 { fill: $gt-red; }
+}
+
+// Navy scale
+.choropleth-navy {
+  &-1 { fill: #{gt-alpha($gt-navy, 0.1)}; }
+  &-2 { fill: #{gt-alpha($gt-navy, 0.25)}; }
+  &-3 { fill: #{gt-alpha($gt-navy, 0.4)}; }
+  &-4 { fill: #{gt-alpha($gt-navy, 0.6)}; }
+  &-5 { fill: #{gt-alpha($gt-navy, 0.8)}; }
+  &-6 { fill: $gt-navy; }
+}
+
+// Teal scale
+.choropleth-teal {
+  &-1 { fill: #{gt-alpha($gt-teal, 0.1)}; }
+  &-2 { fill: #{gt-alpha($gt-teal, 0.25)}; }
+  &-3 { fill: #{gt-alpha($gt-teal, 0.4)}; }
+  &-4 { fill: #{gt-alpha($gt-teal, 0.6)}; }
+  &-5 { fill: #{gt-alpha($gt-teal, 0.8)}; }
+  &-6 { fill: $gt-teal; }
+}
+
+// GeoJSON feature styling
+.leaflet-interactive {
+  stroke: $gt-white;
+  stroke-width: 1;
+  stroke-opacity: 0.8;
+
+  &:hover {
+    stroke-width: 2;
+    stroke-opacity: 1;
+  }
+}

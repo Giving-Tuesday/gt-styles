@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GivingTuesday Data Commons - Brand Style Demo</title>
+  <link rel="stylesheet" href="../dist/css/modules/spa/gt-spa.css">
+  <style>
+    /* Demo-specific styles */
+    .demo-section {
+      padding: 80px 0;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    .demo-section:last-child {
+      border-bottom: none;
+    }
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 24px;
+    }
+    .color-swatch {
+      aspect-ratio: 1;
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 16px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+    }
+    .color-swatch--light {
+      color: #001548;
+    }
+    .color-swatch--dark {
+      color: #ffffff;
+    }
+    .type-specimen {
+      margin-bottom: 32px;
+    }
+    .spacing-box {
+      background: #CAC7F8;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      padding-left: 8px;
+      font-size: 12px;
+      font-family: monospace;
+      margin-bottom: 8px;
+      border-radius: 4px;
+    }
+    .forbidden-combo {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 24px;
+      background: #FDF7F7;
+      border-radius: 12px;
+      margin-bottom: 16px;
+    }
+    .combo-circle {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Skip Link -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header__inner">
+      <div class="header__logo">
+        <span style="font-family: Montserrat; font-weight: 700; font-size: 20px; color: #ED132E;">GivingTuesday</span>
+        <span style="font-family: Montserrat; font-weight: 400; font-size: 14px; color: #001548; margin-left: 8px;">Data Commons</span>
+      </div>
+      <nav class="header__nav">
+        <a href="#colors" class="header__link">Colors</a>
+        <a href="#typography" class="header__link">Typography</a>
+        <a href="#spacing" class="header__link">Spacing</a>
+        <a href="#components" class="header__link">Components</a>
+        <a href="#rules" class="header__link">Rules</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero hero--gradient">
+      <div class="container">
+        <div class="hero__content">
+          <span class="hero__label">Brand Guidelines</span>
+          <h1 class="hero__title">GivingTuesday Data Commons</h1>
+          <p class="hero__text">
+            A comprehensive style guide implementing the official 2025 brand guidelines.
+            This demo showcases colors, typography, spacing, and components following
+            the PDF brand specification.
+          </p>
+          <div class="hero__actions">
+            <a href="#colors" class="btn btn-primary btn-lg">Explore Colors</a>
+            <a href="#components" class="btn btn-outline btn-lg" style="border-color: white; color: white;">View Components</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Colors Section -->
+    <section id="colors" class="demo-section bg-white">
+      <div class="container">
+        <span class="hero__label text-red">Brand Identity</span>
+        <h2>Color Palette</h2>
+        <p class="mb-6">The GivingTuesday Data Commons color palette consists of primary, secondary, and digital-specific colors.</p>
+
+        <h3 class="mt-8 mb-4">Primary Colors</h3>
+        <div class="color-grid mb-8">
+          <div class="color-swatch color-swatch--dark" style="background: #ED132E;">
+            <strong>Red</strong>
+            <span>#ED132E</span>
+          </div>
+          <div class="color-swatch color-swatch--dark" style="background: #001548;">
+            <strong>Dark Navy</strong>
+            <span>#001548</span>
+          </div>
+          <div class="color-swatch color-swatch--dark" style="background: #000000;">
+            <strong>Black</strong>
+            <span>#000000</span>
+          </div>
+        </div>
+
+        <h3 class="mt-8 mb-4">Secondary Colors</h3>
+        <div class="color-grid mb-8">
+          <div class="color-swatch color-swatch--light" style="background: #CAC7F8;">
+            <strong>Lavender</strong>
+            <span>#CAC7F8</span>
+          </div>
+          <div class="color-swatch color-swatch--light" style="background: #6CF4FF;">
+            <strong>Light Blue</strong>
+            <span>#6CF4FF</span>
+          </div>
+          <div class="color-swatch color-swatch--light" style="background: #FDF7F7; border: 1px solid #e0e0e0;">
+            <strong>Beige</strong>
+            <span>#FDF7F7</span>
+          </div>
+        </div>
+
+        <h3 class="mt-8 mb-4">Digital/Website Colors</h3>
+        <div class="color-grid">
+          <div class="color-swatch color-swatch--dark" style="background: #0fb5c3;">
+            <strong>Teal</strong>
+            <span>#0fb5c3</span>
+          </div>
+          <div class="color-swatch color-swatch--dark" style="background: #33487e;">
+            <strong>Heading Blue</strong>
+            <span>#33487e</span>
+          </div>
+          <div class="color-swatch color-swatch--dark" style="background: #1b1a19;">
+            <strong>Copy</strong>
+            <span>#1b1a19</span>
+          </div>
+          <div class="color-swatch color-swatch--light" style="background: #f4f4f1; border: 1px solid #e0e0e0;">
+            <strong>Light BG</strong>
+            <span>#f4f4f1</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Typography Section -->
+    <section id="typography" class="demo-section bg-light">
+      <div class="container">
+        <span class="hero__label text-red">Visual Language</span>
+        <h2>Typography</h2>
+        <p class="mb-8">GivingTuesday uses Montserrat for headlines and labels, with Georgia as the secondary font for body copy.</p>
+
+        <div class="grid grid--2">
+          <div>
+            <h3 class="mb-4">Montserrat</h3>
+            <p style="font-family: Montserrat;">Primary typeface for headlines, subheads, labels, and UI elements.</p>
+
+            <div class="type-specimen mt-6">
+              <p style="font-family: Montserrat; font-size: 72px; font-weight: 600; line-height: 1.1; color: #001548;">Headlines</p>
+              <p class="text-copy" style="font-size: 14px;">72px / SemiBold / 110% line-height</p>
+            </div>
+
+            <div class="type-specimen">
+              <p style="font-family: Montserrat; font-size: 40px; font-weight: 400; line-height: 1.2; color: #001548;">Subheadings</p>
+              <p class="text-copy" style="font-size: 14px;">40px / Regular / 120% line-height</p>
+            </div>
+
+            <div class="type-specimen">
+              <p style="font-family: Montserrat; font-size: 24px; font-weight: 400; line-height: 1.3; text-transform: uppercase; letter-spacing: 0.05em; color: #ED132E;">Labels / Overlines</p>
+              <p class="text-copy" style="font-size: 14px;">24px / Regular / 130% line-height / Uppercase</p>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="mb-4">Georgia</h3>
+            <p style="font-family: Georgia, serif;">Secondary typeface for body copy and extended reading.</p>
+
+            <div class="type-specimen mt-6">
+              <p style="font-family: Georgia, serif; font-size: 24px; line-height: 1.4; color: #1b1a19;">
+                Body text is set in Georgia at 24px minimum with 140% line height for optimal readability.
+                This ensures comfortable reading for longer content sections.
+              </p>
+              <p class="text-copy mt-2" style="font-size: 14px;">24px / Regular / 140% line-height</p>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="mt-10 mb-4">Heading Hierarchy</h3>
+        <div class="bg-white p-6 rounded-xl shadow">
+          <h1>Heading 1 - Main Page Title</h1>
+          <h2>Heading 2 - Section Title</h2>
+          <h3>Heading 3 - Subsection Title</h3>
+          <h4>Heading 4 - Card Title</h4>
+          <h5>Heading 5 - Small Header</h5>
+          <h6>Heading 6 - Tiny Header</h6>
+        </div>
+      </div>
+    </section>
+
+    <!-- Spacing Section -->
+    <section id="spacing" class="demo-section bg-white">
+      <div class="container">
+        <span class="hero__label text-red">Layout System</span>
+        <h2>Spacing Scale</h2>
+        <p class="mb-6">All spacing uses an 8px base unit. Multiply by the scale number to get the pixel value.</p>
+
+        <div class="row">
+          <div class="col-6">
+            <h3 class="mb-4">8px Base Grid</h3>
+            <div class="spacing-box" style="width: 8px;">1 (8px)</div>
+            <div class="spacing-box" style="width: 16px;">2 (16px)</div>
+            <div class="spacing-box" style="width: 24px;">3 (24px)</div>
+            <div class="spacing-box" style="width: 32px;">4 (32px)</div>
+            <div class="spacing-box" style="width: 40px;">5 (40px)</div>
+            <div class="spacing-box" style="width: 48px;">6 (48px)</div>
+            <div class="spacing-box" style="width: 64px;">8 (64px)</div>
+            <div class="spacing-box" style="width: 80px;">10 (80px)</div>
+          </div>
+          <div class="col-6">
+            <h3 class="mb-4">Photo Border Radius</h3>
+            <p class="mb-4">Photos use a maximum border radius of 50px to maintain brand consistency.</p>
+            <div style="display: flex; gap: 24px;">
+              <div>
+                <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=200&h=200&fit=crop" alt="Sample photo" style="border-radius: 50px; width: 150px; height: 150px; object-fit: cover;">
+                <p class="text-center text-copy mt-2" style="font-size: 12px;">50px radius</p>
+              </div>
+              <div>
+                <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=200&h=200&fit=crop" alt="Sample photo" style="border-radius: 24px; width: 150px; height: 150px; object-fit: cover;">
+                <p class="text-center text-copy mt-2" style="font-size: 12px;">24px radius</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Components Section -->
+    <section id="components" class="demo-section bg-light">
+      <div class="container">
+        <span class="hero__label text-red">UI Elements</span>
+        <h2>Components</h2>
+        <p class="mb-8">Reusable components built with the brand guidelines.</p>
+
+        <!-- Buttons -->
+        <h3 class="mb-4">Buttons</h3>
+        <div class="bg-white p-6 rounded-xl shadow mb-8">
+          <div class="d-flex flex-wrap gap-3">
+            <button class="btn btn-primary">Primary Button</button>
+            <button class="btn btn-secondary">Secondary Button</button>
+            <button class="btn btn-outline">Outline Button</button>
+            <button class="btn btn-primary" disabled>Disabled</button>
+          </div>
+          <div class="d-flex flex-wrap gap-3 mt-4">
+            <button class="btn btn-primary btn-sm">Small</button>
+            <button class="btn btn-primary">Default</button>
+            <button class="btn btn-primary btn-lg">Large</button>
+          </div>
+        </div>
+
+        <!-- Cards -->
+        <h3 class="mb-4">Cards</h3>
+        <div class="grid grid--3 mb-8">
+          <div class="card">
+            <div class="card__image">
+              <img src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=400&h=250&fit=crop" alt="Giving">
+            </div>
+            <div class="card__body">
+              <span class="card__label">Research</span>
+              <h4 class="card__title">Global Giving Trends</h4>
+              <p class="card__text">Exploring how generosity patterns have evolved across different regions and demographics.</p>
+              <a href="#" class="btn btn-outline btn-sm">Read More</a>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card__image">
+              <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=400&h=250&fit=crop" alt="Community">
+            </div>
+            <div class="card__body">
+              <span class="card__label">Report</span>
+              <h4 class="card__title">Community Impact Study</h4>
+              <p class="card__text">Measuring the tangible effects of coordinated giving movements in local communities.</p>
+              <a href="#" class="btn btn-outline btn-sm">Read More</a>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card__image">
+              <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=400&h=250&fit=crop" alt="Data">
+            </div>
+            <div class="card__body">
+              <span class="card__label">Data</span>
+              <h4 class="card__title">2024 Giving Data</h4>
+              <p class="card__text">Access comprehensive datasets on charitable giving patterns worldwide.</p>
+              <a href="#" class="btn btn-outline btn-sm">Read More</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stats -->
+        <h3 class="mb-4">Statistics</h3>
+        <div class="stats stats--card mb-8">
+          <div class="stats__item">
+            <div class="stats__number">$3.1B</div>
+            <div class="stats__label">Total Donations</div>
+          </div>
+          <div class="stats__item">
+            <div class="stats__number">35M+</div>
+            <div class="stats__label">Participants</div>
+          </div>
+          <div class="stats__item">
+            <div class="stats__number">80+</div>
+            <div class="stats__label">Countries</div>
+          </div>
+          <div class="stats__item">
+            <div class="stats__number">150K+</div>
+            <div class="stats__label">Organizations</div>
+          </div>
+        </div>
+
+        <!-- Forms -->
+        <h3 class="mb-4">Form Elements</h3>
+        <div class="bg-white p-6 rounded-xl shadow mb-8">
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <label class="form-label">Email Address</label>
+                <input type="email" class="form-input" placeholder="you@example.com">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Password</label>
+                <input type="password" class="form-input" placeholder="Enter your password">
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label class="form-label">Country</label>
+                <select class="form-select">
+                  <option>United States</option>
+                  <option>Canada</option>
+                  <option>United Kingdom</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Message</label>
+                <textarea class="form-input" rows="3" placeholder="Your message..."></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial -->
+        <h3 class="mb-4">Testimonial</h3>
+        <div class="testimonial">
+          <p class="testimonial__quote">
+            GivingTuesday has transformed how we think about community engagement. The data insights have helped us reach more donors and make a bigger impact.
+          </p>
+          <div class="testimonial__author">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop" alt="Sarah Johnson" class="testimonial__avatar">
+            <div>
+              <div class="testimonial__name">Sarah Johnson</div>
+              <div class="testimonial__role">Executive Director, Community Foundation</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Rules Section -->
+    <section id="rules" class="demo-section bg-white">
+      <div class="container">
+        <span class="hero__label text-red">Brand Rules</span>
+        <h2>Design Guidelines</h2>
+        <p class="mb-8">Important rules to maintain brand consistency.</p>
+
+        <h3 class="mb-4">Forbidden Color Combinations</h3>
+        <p class="mb-4">These color combinations should NEVER be used together:</p>
+
+        <div class="forbidden-combo">
+          <div class="combo-circle" style="background: #ED132E;"></div>
+          <span style="font-size: 24px; color: #001548;">+</span>
+          <div class="combo-circle" style="background: #CAC7F8;"></div>
+          <div>
+            <strong style="color: #ED132E;">Never combine Red + Lavender</strong>
+            <p class="mb-0 text-copy">This combination creates visual conflict and should be avoided in all materials.</p>
+          </div>
+        </div>
+
+        <h3 class="mt-8 mb-4">Typography Restrictions</h3>
+        <p class="mb-4">The following colors should NOT be used for text:</p>
+        <ul>
+          <li><strong>Light Blue (#6CF4FF)</strong> - Too bright for readable text</li>
+          <li><strong>Lavender (#CAC7F8)</strong> - Insufficient contrast for body text</li>
+          <li><strong>Beige (#FDF7F7)</strong> - Only suitable on dark backgrounds</li>
+        </ul>
+
+        <h3 class="mt-8 mb-4">Contrast Requirements</h3>
+        <p>All text must meet WCAG 2.1 AA contrast requirements:</p>
+        <ul>
+          <li>Normal text: 4.5:1 minimum contrast ratio</li>
+          <li>Large text (24px+): 3:1 minimum contrast ratio</li>
+          <li>Use Navy (#001548) or Black (#000000) for body text on light backgrounds</li>
+          <li>Use White (#FFFFFF) or Beige (#FDF7F7) for text on dark backgrounds</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+      <div class="container">
+        <h2 class="cta__title">Ready to Use the Brand?</h2>
+        <p class="cta__text">
+          Download the complete SCSS framework and start building beautiful,
+          brand-consistent experiences for GivingTuesday Data Commons.
+        </p>
+        <a href="#" class="btn btn-primary btn-lg">Download Framework</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__logo">
+            <span style="font-family: Montserrat; font-weight: 700; font-size: 20px;">GivingTuesday</span>
+          </div>
+          <p class="footer__about">
+            GivingTuesday Data Commons provides research, data, and insights
+            to support the global generosity movement.
+          </p>
+        </div>
+        <div>
+          <h4 class="footer__title">Resources</h4>
+          <ul class="footer__links">
+            <li><a href="#">Research Reports</a></li>
+            <li><a href="#">Data Downloads</a></li>
+            <li><a href="#">API Documentation</a></li>
+            <li><a href="#">Brand Guidelines</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer__title">Community</h4>
+          <ul class="footer__links">
+            <li><a href="#">Partner Network</a></li>
+            <li><a href="#">Events</a></li>
+            <li><a href="#">Newsletter</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer__title">Connect</h4>
+          <div class="footer__social">
+            <a href="#" aria-label="Twitter">
+              <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="#" aria-label="GitHub">
+              <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2025 GivingTuesday. All rights reserved.</p>
+        <div>
+          <a href="#">Privacy Policy</a> &middot;
+          <a href="#">Terms of Use</a> &middot;
+          <a href="#">Accessibility</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

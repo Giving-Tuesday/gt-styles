@@ -1,0 +1,189 @@
+// =============================================================================
+// CSS CUSTOM PROPERTIES EXPORT
+// =============================================================================
+// Enables runtime theming without SCSS recompilation
+// Import this file to get CSS custom properties for all brand tokens
+// =============================================================================
+
+@use 'variables' as *;
+
+:root {
+  // ---------------------------------------------------------------------------
+  // Colors - Brand Primary
+  // ---------------------------------------------------------------------------
+  --gt-red: #{$gt-red};
+  --gt-navy: #{$gt-navy};
+  --gt-black: #{$gt-black};
+
+  // ---------------------------------------------------------------------------
+  // Colors - Brand Secondary
+  // ---------------------------------------------------------------------------
+  --gt-lavender: #{$gt-lavender};
+  --gt-light-blue: #{$gt-light-blue};
+  --gt-beige: #{$gt-beige};
+  --gt-white: #{$gt-white};
+
+  // ---------------------------------------------------------------------------
+  // Colors - Website/Digital
+  // ---------------------------------------------------------------------------
+  --gt-teal: #{$gt-teal};
+  --gt-teal-hover: #{$gt-teal-hover};
+  --gt-heading-blue: #{$gt-heading-blue};
+  --gt-copy: #{$gt-copy};
+  --gt-light-bg: #{$gt-light-bg};
+  --gt-divider: #{$gt-divider};
+
+  // ---------------------------------------------------------------------------
+  // Semantic Colors
+  // ---------------------------------------------------------------------------
+  --color-primary: var(--gt-red);
+  --color-secondary: var(--gt-navy);
+  --color-accent: var(--gt-teal);
+  --color-background: var(--gt-beige);
+  --color-background-alt: var(--gt-light-bg);
+  --color-surface: var(--gt-white);
+  --color-text: var(--gt-navy);
+  --color-text-muted: var(--gt-copy);
+  --color-border: var(--gt-divider);
+  --color-link: var(--gt-teal);
+  --color-link-hover: var(--gt-teal-hover);
+
+  // ---------------------------------------------------------------------------
+  // Typography
+  // ---------------------------------------------------------------------------
+  --font-family-primary: #{$font-family-primary};
+  --font-family-secondary: #{$font-family-secondary};
+  --font-family-mono: #{$font-family-mono};
+
+  --font-weight-light: #{$font-weight-light};
+  --font-weight-regular: #{$font-weight-regular};
+  --font-weight-medium: #{$font-weight-medium};
+  --font-weight-semibold: #{$font-weight-semibold};
+  --font-weight-bold: #{$font-weight-bold};
+
+  --font-size-root: #{$font-size-root};
+  --font-size-base: #{$font-size-base};
+  --font-size-h1: #{$font-size-h1};
+  --font-size-h2: #{$font-size-h2};
+  --font-size-h3: #{$font-size-h3};
+  --font-size-h4: #{$font-size-h4};
+  --font-size-h5: #{$font-size-h5};
+  --font-size-h6: #{$font-size-h6};
+  --font-size-small: #{$font-size-small};
+  --font-size-label: #{$font-size-label};
+
+  --line-height-headline: #{$line-height-headline};
+  --line-height-subhead: #{$line-height-subhead};
+  --line-height-label: #{$line-height-label};
+  --line-height-body: #{$line-height-body};
+  --line-height-loose: #{$line-height-loose};
+
+  --letter-spacing-tight: #{$letter-spacing-tight};
+  --letter-spacing-normal: #{$letter-spacing-normal};
+  --letter-spacing-wide: #{$letter-spacing-wide};
+  --letter-spacing-wider: #{$letter-spacing-wider};
+
+  // ---------------------------------------------------------------------------
+  // Spacing
+  // ---------------------------------------------------------------------------
+  --spacer-base: #{$spacer-base};
+  --spacer-0: #{$spacer-0};
+  --spacer-1: #{$spacer-1};
+  --spacer-2: #{$spacer-2};
+  --spacer-3: #{$spacer-3};
+  --spacer-4: #{$spacer-4};
+  --spacer-5: #{$spacer-5};
+  --spacer-6: #{$spacer-6};
+  --spacer-7: #{$spacer-7};
+  --spacer-8: #{$spacer-8};
+  --spacer-9: #{$spacer-9};
+  --spacer-10: #{$spacer-10};
+  --spacer-12: #{$spacer-12};
+  --spacer-16: #{$spacer-16};
+  --spacer-20: #{$spacer-20};
+
+  // ---------------------------------------------------------------------------
+  // Borders
+  // ---------------------------------------------------------------------------
+  --border-width: #{$border-width};
+  --border-width-2: #{$border-width-2};
+  --border-width-4: #{$border-width-4};
+  --border-color: var(--gt-divider);
+
+  --border-radius-none: #{$border-radius-none};
+  --border-radius-sm: #{$border-radius-sm};
+  --border-radius-md: #{$border-radius-md};
+  --border-radius-lg: #{$border-radius-lg};
+  --border-radius-xl: #{$border-radius-xl};
+  --border-radius-2xl: #{$border-radius-2xl};
+  --border-radius-3xl: #{$border-radius-3xl};
+  --border-radius-full: #{$border-radius-full};
+  --border-radius-photo: #{$border-radius-photo};
+
+  // ---------------------------------------------------------------------------
+  // Shadows
+  // ---------------------------------------------------------------------------
+  --shadow-sm: #{$shadow-sm};
+  --shadow-md: #{$shadow-md};
+  --shadow-lg: #{$shadow-lg};
+  --shadow-xl: #{$shadow-xl};
+  --shadow-2xl: #{$shadow-2xl};
+
+  // ---------------------------------------------------------------------------
+  // Transitions
+  // ---------------------------------------------------------------------------
+  --transition-duration-fast: #{$transition-duration-fast};
+  --transition-duration-base: #{$transition-duration-base};
+  --transition-duration-slow: #{$transition-duration-slow};
+  --transition-timing: #{$transition-timing};
+  --transition-fast: #{$transition-fast};
+  --transition-base: #{$transition-base};
+  --transition-slow: #{$transition-slow};
+
+  // ---------------------------------------------------------------------------
+  // Gradients
+  // ---------------------------------------------------------------------------
+  --gradient-lavender-navy: #{$gradient-lavender-navy};
+  --gradient-lightblue-beige: #{$gradient-lightblue-beige};
+  --gradient-beige-lavender: #{$gradient-beige-lavender};
+  --gradient-red-beige: #{$gradient-red-beige};
+
+  // ---------------------------------------------------------------------------
+  // Z-Index
+  // ---------------------------------------------------------------------------
+  --zindex-dropdown: #{$zindex-dropdown};
+  --zindex-sticky: #{$zindex-sticky};
+  --zindex-fixed: #{$zindex-fixed};
+  --zindex-modal-backdrop: #{$zindex-modal-backdrop};
+  --zindex-modal: #{$zindex-modal};
+  --zindex-popover: #{$zindex-popover};
+  --zindex-tooltip: #{$zindex-tooltip};
+}
+
+// =============================================================================
+// DARK THEME
+// =============================================================================
+// Example dark theme override - activate with data-theme="dark" on <html>
+// =============================================================================
+
+[data-theme="dark"] {
+  --color-background: var(--gt-navy);
+  --color-background-alt: var(--gt-black);
+  --color-surface: #1a1a2e;
+  --color-text: var(--gt-white);
+  --color-text-muted: var(--gt-beige);
+  --color-border: rgba(255, 255, 255, 0.1);
+}
+
+// =============================================================================
+// HIGH CONTRAST THEME
+// =============================================================================
+// For accessibility - activate with data-theme="high-contrast"
+// =============================================================================
+
+[data-theme="high-contrast"] {
+  --color-background: var(--gt-white);
+  --color-text: var(--gt-black);
+  --color-link: #0000EE;
+  --color-link-hover: #551A8B;
+}

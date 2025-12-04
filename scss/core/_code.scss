@@ -1,0 +1,262 @@
+// =============================================================================
+// CODE STYLING
+// =============================================================================
+// Reusable code block and syntax highlighting styles for GT brand
+// Can be used standalone or as base for platform-specific overrides
+// =============================================================================
+
+@use 'variables' as *;
+
+// -----------------------------------------------------------------------------
+// INLINE CODE
+// -----------------------------------------------------------------------------
+
+.gt-code-inline,
+%code-inline {
+  font-family: $font-family-mono;
+  font-size: 0.875em;
+  background-color: $gt-beige;
+  color: $gt-navy;
+  padding: 0.15em 0.4em;
+  border-radius: $border-radius-sm;
+  word-break: break-word;
+}
+
+// -----------------------------------------------------------------------------
+// CODE BLOCKS - LIGHT THEME (Default)
+// -----------------------------------------------------------------------------
+// Light background with dark text - better for documentation and print
+
+.gt-code-block,
+%code-block-light {
+  font-family: $font-family-mono;
+  font-size: 14px;
+  line-height: 1.5;
+  background-color: $gt-light-bg;
+  border: 1px solid $gt-divider;
+  border-radius: $border-radius-md;
+  padding: $spacer-3;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+
+  code {
+    font-family: inherit;
+    font-size: inherit;
+    background: transparent;
+    padding: 0;
+    color: $gt-copy;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// CODE BLOCKS - DARK THEME
+// -----------------------------------------------------------------------------
+// Navy background with light text - better for presentations and hero sections
+
+.gt-code-block--dark,
+%code-block-dark {
+  font-family: $font-family-mono;
+  font-size: 14px;
+  line-height: 1.5;
+  background-color: $gt-navy;
+  color: $gt-white;
+  border-radius: $border-radius-md;
+  padding: $spacer-3;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+
+  code {
+    font-family: inherit;
+    font-size: inherit;
+    background: transparent;
+    padding: 0;
+    color: inherit;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// SYNTAX HIGHLIGHTING - LIGHT THEME
+// -----------------------------------------------------------------------------
+// Colors chosen for accessibility (WCAG AA) on light backgrounds
+
+.gt-syntax-light {
+  // Comments
+  .hljs-comment,
+  .hljs-quote,
+  .cm-comment {
+    color: #6a737d;
+    font-style: italic;
+  }
+
+  // Keywords, tags
+  .hljs-keyword,
+  .hljs-selector-tag,
+  .hljs-tag,
+  .cm-keyword {
+    color: $gt-navy;
+    font-weight: 600;
+  }
+
+  // Strings, values
+  .hljs-string,
+  .hljs-attr,
+  .hljs-symbol,
+  .cm-string {
+    color: #c41d4a; // Darker red for contrast
+  }
+
+  // Numbers, literals
+  .hljs-number,
+  .hljs-literal,
+  .cm-number {
+    color: #005cc5;
+  }
+
+  // Variables, attributes
+  .hljs-variable,
+  .hljs-template-variable,
+  .hljs-attribute,
+  .cm-variable {
+    color: #6f42c1;
+  }
+
+  // Functions, methods
+  .hljs-built_in,
+  .hljs-builtin-name,
+  .hljs-function,
+  .cm-def {
+    color: #0b7285; // Teal-ish for brand alignment
+  }
+
+  // Types, classes
+  .hljs-type,
+  .hljs-class,
+  .hljs-title,
+  .cm-type {
+    color: $gt-navy;
+    font-weight: 500;
+  }
+
+  // Properties
+  .hljs-property,
+  .cm-property {
+    color: #005cc5;
+  }
+
+  // Operators, punctuation
+  .hljs-operator,
+  .hljs-punctuation {
+    color: $gt-copy;
+  }
+
+  // Selection highlight
+  .hljs-selection,
+  ::selection {
+    background-color: rgba($gt-teal, 0.2);
+  }
+}
+
+// -----------------------------------------------------------------------------
+// SYNTAX HIGHLIGHTING - DARK THEME
+// -----------------------------------------------------------------------------
+// Colors chosen for accessibility (WCAG AA) on dark navy background
+
+.gt-syntax-dark {
+  // Comments
+  .hljs-comment,
+  .hljs-quote,
+  .cm-comment {
+    color: #8b949e;
+    font-style: italic;
+  }
+
+  // Keywords, tags
+  .hljs-keyword,
+  .hljs-selector-tag,
+  .hljs-tag,
+  .cm-keyword {
+    color: #ff7b72; // Light red
+  }
+
+  // Strings, values
+  .hljs-string,
+  .hljs-attr,
+  .hljs-symbol,
+  .cm-string {
+    color: #a5d6ff; // Light blue
+  }
+
+  // Numbers, literals
+  .hljs-number,
+  .hljs-literal,
+  .cm-number {
+    color: #79c0ff;
+  }
+
+  // Variables, attributes
+  .hljs-variable,
+  .hljs-template-variable,
+  .hljs-attribute,
+  .cm-variable {
+    color: #d2a8ff; // Light purple
+  }
+
+  // Functions, methods
+  .hljs-built_in,
+  .hljs-builtin-name,
+  .hljs-function,
+  .cm-def {
+    color: $gt-light-blue;
+  }
+
+  // Types, classes
+  .hljs-type,
+  .hljs-class,
+  .hljs-title,
+  .cm-type {
+    color: #ffa657; // Orange
+  }
+
+  // Properties
+  .hljs-property,
+  .cm-property {
+    color: #79c0ff;
+  }
+
+  // Operators, punctuation
+  .hljs-operator,
+  .hljs-punctuation {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  // Selection highlight
+  .hljs-selection,
+  ::selection {
+    background-color: rgba($gt-teal, 0.3);
+  }
+}
+
+// -----------------------------------------------------------------------------
+// MIXINS FOR PLATFORM USE
+// -----------------------------------------------------------------------------
+
+@mixin code-inline {
+  @extend %code-inline;
+}
+
+@mixin code-block-light {
+  @extend %code-block-light;
+}
+
+@mixin code-block-dark {
+  @extend %code-block-dark;
+}
+
+// Combined mixin with theme option
+@mixin code-block($theme: 'light') {
+  @if $theme == 'dark' {
+    @include code-block-dark;
+  } @else {
+    @include code-block-light;
+  }
+}

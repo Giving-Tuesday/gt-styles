@@ -1,0 +1,898 @@
+// =============================================================================
+// GIVINGTUESDAY REACT COMPONENT STYLES
+// =============================================================================
+// Styles for React components following GT brand guidelines
+// Usage: Import in your React app's global styles or component CSS modules
+// =============================================================================
+
+@use '../../core' as *;
+
+// -----------------------------------------------------------------------------
+// CSS CUSTOM PROPERTIES (for CSS-in-JS compatibility)
+// -----------------------------------------------------------------------------
+
+// All custom properties are already exported in core/_custom-properties.scss
+// This file provides component class styles that can be used directly or as reference
+
+// -----------------------------------------------------------------------------
+// BASE / RESET
+// -----------------------------------------------------------------------------
+
+.gt-app {
+  font-family: var(--font-family-secondary);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-body);
+  color: var(--gt-copy);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// BUTTONS
+// -----------------------------------------------------------------------------
+
+.gt-button {
+  @include button-base;
+
+  // Variants
+  &--primary {
+    background-color: var(--gt-red);
+    color: var(--gt-white);
+
+    &:hover:not(:disabled) {
+      background-color: #{gt-darken($gt-red, 10%)};
+    }
+  }
+
+  &--secondary {
+    background-color: var(--gt-navy);
+    color: var(--gt-white);
+
+    &:hover:not(:disabled) {
+      background-color: #{gt-lighten($gt-navy, 15%)};
+    }
+  }
+
+  &--outline {
+    background-color: transparent;
+    border-color: var(--gt-navy);
+    color: var(--gt-navy);
+
+    &:hover:not(:disabled) {
+      background-color: var(--gt-navy);
+      color: var(--gt-white);
+    }
+  }
+
+  &--ghost {
+    background-color: transparent;
+    border-color: transparent;
+    color: var(--gt-teal);
+
+    &:hover:not(:disabled) {
+      background-color: var(--gt-light-bg);
+    }
+  }
+
+  &--link {
+    background: none;
+    border: none;
+    padding: 0;
+    color: var(--gt-teal);
+    font-weight: var(--font-weight-medium);
+
+    &:hover:not(:disabled) {
+      color: var(--gt-teal-hover);
+      text-decoration: underline;
+    }
+  }
+
+  // Sizes
+  &--sm {
+    padding: $spacer-1 $spacer-3;
+    font-size: 14px;
+  }
+
+  &--lg {
+    padding: $spacer-3 $spacer-6;
+    font-size: 18px;
+  }
+
+  // Full width
+  &--full {
+    width: 100%;
+  }
+
+  // Loading state
+  &--loading {
+    position: relative;
+    color: transparent;
+    pointer-events: none;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      top: 50%;
+      left: 50%;
+      margin: -8px 0 0 -8px;
+      border: 2px solid currentColor;
+      border-right-color: transparent;
+      border-radius: 50%;
+      animation: gt-spin 0.6s linear infinite;
+    }
+  }
+
+  // Icon button
+  &--icon {
+    padding: $spacer-2;
+    min-width: 40px;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+@keyframes gt-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+// Button group
+.gt-button-group {
+  display: inline-flex;
+  gap: $spacer-2;
+
+  &--attached {
+    gap: 0;
+
+    .gt-button {
+      border-radius: 0;
+
+      &:first-child {
+        border-radius: $btn-border-radius 0 0 $btn-border-radius;
+      }
+
+      &:last-child {
+        border-radius: 0 $btn-border-radius $btn-border-radius 0;
+      }
+    }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// FORMS
+// -----------------------------------------------------------------------------
+
+.gt-input {
+  @include input;
+
+  // States
+  &--error {
+    border-color: $gt-red;
+
+    &:focus {
+      border-color: $gt-red;
+      box-shadow: 0 0 0 3px #{gt-alpha($gt-red, 0.2)};
+    }
+  }
+
+  &--success {
+    border-color: $gt-teal;
+  }
+
+  // Sizes
+  &--sm {
+    padding: $spacer-1 $spacer-2;
+    font-size: 14px;
+  }
+
+  &--lg {
+    padding: $spacer-3 $spacer-4;
+    font-size: 18px;
+  }
+}
+
+.gt-textarea {
+  @include input;
+  min-height: 120px;
+  resize: vertical;
+}
+
+.gt-select {
+  @include input;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23001548' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right $spacer-3 center;
+  padding-right: $spacer-8;
+}
+
+.gt-checkbox,
+.gt-radio {
+  display: flex;
+  align-items: center;
+  gap: $spacer-2;
+  cursor: pointer;
+
+  input {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--gt-teal);
+    cursor: pointer;
+  }
+}
+
+.gt-form-group {
+  margin-bottom: $spacer-4;
+}
+
+.gt-label {
+  display: block;
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-medium);
+  font-size: 14px;
+  color: var(--gt-navy);
+  margin-bottom: $spacer-1;
+}
+
+.gt-helper-text {
+  font-size: 12px;
+  color: var(--gt-copy);
+  margin-top: $spacer-1;
+
+  &--error {
+    color: $gt-red;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// CARDS
+// -----------------------------------------------------------------------------
+
+.gt-card {
+  @include card;
+
+  &__header {
+    padding: $spacer-4;
+    border-bottom: 1px solid var(--gt-divider);
+  }
+
+  &__body {
+    padding: $spacer-4;
+  }
+
+  &__footer {
+    padding: $spacer-3 $spacer-4;
+    border-top: 1px solid var(--gt-divider);
+    background: var(--gt-light-bg);
+  }
+
+  &__image {
+    img {
+      width: 100%;
+      display: block;
+    }
+  }
+
+  &__title {
+    font-family: var(--font-family-primary);
+    font-weight: var(--font-weight-semibold);
+    font-size: $font-size-h4;
+    color: var(--gt-navy);
+    margin: 0;
+  }
+
+  &__subtitle {
+    @include label-text;
+    color: var(--gt-red);
+    margin-bottom: $spacer-1;
+  }
+
+  // Variants
+  &--flat {
+    box-shadow: none;
+    border: 1px solid var(--gt-divider);
+
+    &:hover {
+      box-shadow: none;
+    }
+  }
+
+  &--interactive {
+    cursor: pointer;
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// BADGES & TAGS
+// -----------------------------------------------------------------------------
+
+.gt-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: $spacer-1 $spacer-2;
+  font-family: var(--font-family-primary);
+  font-size: 12px;
+  font-weight: var(--font-weight-medium);
+  line-height: 1;
+  border-radius: $border-radius-full;
+  background: var(--gt-light-bg);
+  color: var(--gt-navy);
+
+  &--red {
+    background: var(--gt-red);
+    color: var(--gt-white);
+  }
+
+  &--navy {
+    background: var(--gt-navy);
+    color: var(--gt-white);
+  }
+
+  &--teal {
+    background: var(--gt-teal);
+    color: var(--gt-white);
+  }
+
+  &--outline {
+    background: transparent;
+    border: 1px solid currentColor;
+  }
+}
+
+.gt-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacer-1;
+  padding: $spacer-1 $spacer-2;
+  font-size: 13px;
+  background: var(--gt-beige);
+  color: var(--gt-navy);
+  border-radius: $border-radius-sm;
+
+  &__remove {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    color: var(--gt-copy);
+    line-height: 1;
+
+    &:hover {
+      color: var(--gt-red);
+    }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// ALERTS & NOTIFICATIONS
+// -----------------------------------------------------------------------------
+
+.gt-alert {
+  display: flex;
+  gap: $spacer-3;
+  padding: $spacer-3 $spacer-4;
+  border-radius: $border-radius-md;
+  border-left: 4px solid;
+
+  &__icon {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+  }
+
+  &__content {
+    flex: 1;
+  }
+
+  &__title {
+    font-family: var(--font-family-primary);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: $spacer-1;
+  }
+
+  &__close {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    opacity: 0.6;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  // Variants
+  &--info {
+    background: #{gt-alpha($gt-teal, 0.1)};
+    border-color: var(--gt-teal);
+
+    .gt-alert__icon { color: var(--gt-teal); }
+  }
+
+  &--success {
+    background: #{gt-alpha($gt-teal, 0.1)};
+    border-color: var(--gt-teal);
+
+    .gt-alert__icon { color: var(--gt-teal); }
+  }
+
+  &--warning {
+    background: #FFF3CD;
+    border-color: #FFC107;
+
+    .gt-alert__icon { color: #856404; }
+  }
+
+  &--error {
+    background: #{gt-alpha($gt-red, 0.1)};
+    border-color: var(--gt-red);
+
+    .gt-alert__icon { color: var(--gt-red); }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// MODAL / DIALOG
+// -----------------------------------------------------------------------------
+
+.gt-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacer-4;
+  z-index: $zindex-modal-backdrop;
+}
+
+.gt-modal {
+  background: var(--gt-white);
+  border-radius: $border-radius-xl;
+  box-shadow: $shadow-2xl;
+  max-width: 500px;
+  width: 100%;
+  max-height: 90vh;
+  overflow: hidden;
+  z-index: $zindex-modal;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: $spacer-4;
+    border-bottom: 1px solid var(--gt-divider);
+  }
+
+  &__title {
+    font-family: var(--font-family-primary);
+    font-weight: var(--font-weight-semibold);
+    font-size: $font-size-h4;
+    color: var(--gt-navy);
+    margin: 0;
+  }
+
+  &__close {
+    background: none;
+    border: none;
+    padding: $spacer-1;
+    cursor: pointer;
+    color: var(--gt-copy);
+    font-size: 24px;
+    line-height: 1;
+
+    &:hover {
+      color: var(--gt-navy);
+    }
+  }
+
+  &__body {
+    padding: $spacer-4;
+    overflow-y: auto;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: $spacer-2;
+    padding: $spacer-3 $spacer-4;
+    border-top: 1px solid var(--gt-divider);
+    background: var(--gt-light-bg);
+  }
+
+  // Sizes
+  &--sm {
+    max-width: 400px;
+  }
+
+  &--lg {
+    max-width: 700px;
+  }
+
+  &--full {
+    max-width: 90vw;
+    max-height: 90vh;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// TABS
+// -----------------------------------------------------------------------------
+
+.gt-tabs {
+  &__list {
+    display: flex;
+    border-bottom: 2px solid var(--gt-divider);
+    gap: $spacer-1;
+  }
+
+  &__tab {
+    background: none;
+    border: none;
+    padding: $spacer-2 $spacer-4;
+    font-family: var(--font-family-primary);
+    font-weight: var(--font-weight-medium);
+    color: var(--gt-copy);
+    cursor: pointer;
+    position: relative;
+    transition: $transition-fast;
+
+    &:hover {
+      color: var(--gt-navy);
+    }
+
+    &--active {
+      color: var(--gt-navy);
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: var(--gt-red);
+      }
+    }
+  }
+
+  &__panel {
+    padding: $spacer-4 0;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// ACCORDION
+// -----------------------------------------------------------------------------
+
+.gt-accordion {
+  border: 1px solid var(--gt-divider);
+  border-radius: $border-radius-md;
+  overflow: hidden;
+
+  &__item {
+    border-bottom: 1px solid var(--gt-divider);
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: $spacer-3 $spacer-4;
+    background: none;
+    border: none;
+    font-family: var(--font-family-primary);
+    font-weight: var(--font-weight-medium);
+    font-size: 16px;
+    color: var(--gt-navy);
+    cursor: pointer;
+    transition: $transition-fast;
+
+    &:hover {
+      background: var(--gt-light-bg);
+    }
+
+    &[aria-expanded="true"] {
+      .gt-accordion__icon {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  &__icon {
+    transition: transform $transition-duration-fast;
+  }
+
+  &__content {
+    padding: 0 $spacer-4 $spacer-4;
+    color: var(--gt-copy);
+  }
+}
+
+// -----------------------------------------------------------------------------
+// AVATAR
+// -----------------------------------------------------------------------------
+
+.gt-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: $border-radius-full;
+  background: var(--gt-navy);
+  color: var(--gt-white);
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-semibold);
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  // Sizes
+  &--xs { width: 24px; height: 24px; font-size: 10px; }
+  &--sm { width: 32px; height: 32px; font-size: 12px; }
+  &--lg { width: 56px; height: 56px; font-size: 20px; }
+  &--xl { width: 80px; height: 80px; font-size: 28px; }
+}
+
+.gt-avatar-group {
+  display: flex;
+
+  .gt-avatar {
+    border: 2px solid var(--gt-white);
+    margin-left: -8px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// PROGRESS
+// -----------------------------------------------------------------------------
+
+.gt-progress {
+  height: 8px;
+  background: var(--gt-light-bg);
+  border-radius: $border-radius-full;
+  overflow: hidden;
+
+  &__bar {
+    height: 100%;
+    background: var(--gt-teal);
+    border-radius: $border-radius-full;
+    transition: width $transition-duration-slow;
+  }
+
+  &--red .gt-progress__bar { background: var(--gt-red); }
+  &--navy .gt-progress__bar { background: var(--gt-navy); }
+
+  // Sizes
+  &--sm { height: 4px; }
+  &--lg { height: 12px; }
+}
+
+// -----------------------------------------------------------------------------
+// SKELETON LOADING
+// -----------------------------------------------------------------------------
+
+.gt-skeleton {
+  background: linear-gradient(90deg, var(--gt-light-bg) 25%, var(--gt-beige) 50%, var(--gt-light-bg) 75%);
+  background-size: 200% 100%;
+  animation: gt-skeleton-loading 1.5s infinite;
+  border-radius: $border-radius-sm;
+
+  &--text {
+    height: 1em;
+    margin-bottom: $spacer-2;
+
+    &:last-child {
+      width: 60%;
+    }
+  }
+
+  &--circle {
+    border-radius: $border-radius-full;
+  }
+
+  &--rect {
+    border-radius: $border-radius-md;
+  }
+}
+
+@keyframes gt-skeleton-loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+// -----------------------------------------------------------------------------
+// TOOLTIP
+// -----------------------------------------------------------------------------
+
+.gt-tooltip {
+  position: relative;
+  display: inline-block;
+
+  &__content {
+    position: absolute;
+    z-index: $zindex-tooltip;
+    padding: $spacer-1 $spacer-2;
+    font-size: 12px;
+    background: var(--gt-navy);
+    color: var(--gt-white);
+    border-radius: $border-radius-sm;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity $transition-duration-fast;
+
+    // Positions
+    &--top {
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      margin-bottom: $spacer-1;
+    }
+
+    &--bottom {
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      margin-top: $spacer-1;
+    }
+  }
+
+  &:hover .gt-tooltip__content {
+    opacity: 1;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// DROPDOWN
+// -----------------------------------------------------------------------------
+
+.gt-dropdown {
+  position: relative;
+  display: inline-block;
+
+  &__menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: $zindex-dropdown;
+    min-width: 180px;
+    margin-top: $spacer-1;
+    background: var(--gt-white);
+    border-radius: $border-radius-md;
+    box-shadow: $shadow-lg;
+    overflow: hidden;
+  }
+
+  &__item {
+    display: block;
+    width: 100%;
+    padding: $spacer-2 $spacer-3;
+    font-size: 14px;
+    color: var(--gt-navy);
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    transition: $transition-fast;
+
+    &:hover {
+      background: var(--gt-light-bg);
+    }
+
+    &--danger {
+      color: var(--gt-red);
+    }
+  }
+
+  &__divider {
+    height: 1px;
+    background: var(--gt-divider);
+    margin: $spacer-1 0;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// NAVIGATION
+// -----------------------------------------------------------------------------
+
+.gt-nav {
+  display: flex;
+  align-items: center;
+  gap: $spacer-1;
+
+  &__item {
+    padding: $spacer-2 $spacer-3;
+    font-family: var(--font-family-primary);
+    font-weight: var(--font-weight-medium);
+    color: var(--gt-navy);
+    text-decoration: none;
+    border-radius: $border-radius-md;
+    transition: $transition-fast;
+
+    &:hover {
+      background: var(--gt-light-bg);
+    }
+
+    &--active {
+      color: var(--gt-teal);
+    }
+  }
+
+  // Vertical
+  &--vertical {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// SPINNER
+// -----------------------------------------------------------------------------
+
+.gt-spinner {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border: 3px solid var(--gt-light-bg);
+  border-top-color: var(--gt-teal);
+  border-radius: 50%;
+  animation: gt-spin 0.8s linear infinite;
+
+  &--sm { width: 16px; height: 16px; border-width: 2px; }
+  &--lg { width: 40px; height: 40px; border-width: 4px; }
+
+  &--red { border-top-color: var(--gt-red); }
+  &--navy { border-top-color: var(--gt-navy); }
+}
+
+// -----------------------------------------------------------------------------
+// UTILITIES
+// -----------------------------------------------------------------------------
+
+// Spacing utilities are in core, but React-specific ones
+.gt-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gt-stack-gap, #{$spacer-4});
+}
+
+.gt-cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gt-cluster-gap, #{$spacer-2});
+}
+
+.gt-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

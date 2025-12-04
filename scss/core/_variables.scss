@@ -1,0 +1,379 @@
+// =============================================================================
+// GIVINGTUESDAY DATA COMMONS - SCSS VARIABLES
+// =============================================================================
+// Framework-compatible naming conventions (Bootstrap/Tailwind inspired)
+// Version: 1.0.0
+// Brand Guidelines: 2025 Edition
+// =============================================================================
+
+// -----------------------------------------------------------------------------
+// COLOR SYSTEM
+// -----------------------------------------------------------------------------
+
+// Brand Primary Colors (from PDF Brand Guidelines)
+$gt-red: #ED132E !default;
+$gt-navy: #001548 !default;
+$gt-black: #000000 !default;
+
+// Brand Secondary Colors (from PDF Brand Guidelines)
+$gt-lavender: #CAC7F8 !default;
+$gt-light-blue: #6CF4FF !default;
+$gt-beige: #FDF7F7 !default;
+
+// White (for completeness)
+$gt-white: #FFFFFF !default;
+
+// Website/Digital Colors (from givingtuesday.org - for interactive elements)
+$gt-teal: #0fb5c3 !default;
+$gt-teal-hover: #10c8d8 !default;
+$gt-heading-blue: #33487e !default;
+$gt-copy: #1b1a19 !default;
+$gt-light-bg: #f4f4f1 !default;
+$gt-divider: #e0e0e0 !default;
+
+// -----------------------------------------------------------------------------
+// COLOR MAPS (Bootstrap-style)
+// -----------------------------------------------------------------------------
+
+$gt-colors: (
+  "red": $gt-red,
+  "navy": $gt-navy,
+  "black": $gt-black,
+  "lavender": $gt-lavender,
+  "light-blue": $gt-light-blue,
+  "beige": $gt-beige,
+  "white": $gt-white,
+  "teal": $gt-teal,
+  "teal-hover": $gt-teal-hover,
+  "heading-blue": $gt-heading-blue,
+  "copy": $gt-copy,
+  "light-bg": $gt-light-bg,
+  "divider": $gt-divider
+) !default;
+
+// Semantic Color Assignments
+$color-primary: $gt-red !default;
+$color-secondary: $gt-navy !default;
+$color-accent: $gt-teal !default;
+$color-background: $gt-beige !default;
+$color-background-alt: $gt-light-bg !default;
+$color-surface: $gt-white !default;
+$color-text: $gt-navy !default;
+$color-text-muted: $gt-copy !default;
+$color-border: $gt-divider !default;
+$color-link: $gt-teal !default;
+$color-link-hover: $gt-teal-hover !default;
+
+// Theme Colors Map (Bootstrap compatible)
+$theme-colors: (
+  "primary": $color-primary,
+  "secondary": $color-secondary,
+  "accent": $color-accent,
+  "success": #28a745,
+  "info": $gt-light-blue,
+  "warning": #ffc107,
+  "danger": $gt-red,
+  "light": $gt-beige,
+  "dark": $gt-navy
+) !default;
+
+// Background Colors
+$gt-backgrounds: (
+  "beige": $gt-beige,
+  "light-blue": $gt-light-blue,
+  "lavender": $gt-lavender,
+  "navy": $gt-navy,
+  "red": $gt-red,
+  "black": $gt-black,
+  "white": $gt-white,
+  "light": $gt-light-bg
+) !default;
+
+// -----------------------------------------------------------------------------
+// GRADIENTS (from PDF page 25-26)
+// -----------------------------------------------------------------------------
+
+$gradient-lavender-navy: linear-gradient(180deg, $gt-lavender 0%, $gt-navy 100%) !default;
+$gradient-lightblue-beige: linear-gradient(180deg, $gt-light-blue 0%, $gt-beige 100%) !default;
+$gradient-beige-lavender: linear-gradient(180deg, $gt-beige 0%, $gt-lavender 100%) !default;
+$gradient-red-beige: linear-gradient(180deg, $gt-red 0%, $gt-beige 100%) !default;
+
+$gt-gradients: (
+  "lavender-navy": $gradient-lavender-navy,
+  "lightblue-beige": $gradient-lightblue-beige,
+  "beige-lavender": $gradient-beige-lavender,
+  "red-beige": $gradient-red-beige
+) !default;
+
+// -----------------------------------------------------------------------------
+// TYPOGRAPHY
+// -----------------------------------------------------------------------------
+
+// Font Families
+$font-family-primary: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !default;
+$font-family-secondary: 'Georgia', 'Times New Roman', serif !default;
+$font-family-base: $font-family-primary !default;
+$font-family-headings: $font-family-primary !default;
+$font-family-body: $font-family-secondary !default;
+$font-family-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace !default;
+
+// Font Weights
+$font-weight-light: 300 !default;
+$font-weight-regular: 400 !default;
+$font-weight-medium: 500 !default;
+$font-weight-semibold: 600 !default;
+$font-weight-bold: 700 !default;
+
+// Font weight map
+$font-weights: (
+  "light": $font-weight-light,
+  "regular": $font-weight-regular,
+  "medium": $font-weight-medium,
+  "semibold": $font-weight-semibold,
+  "bold": $font-weight-bold
+) !default;
+
+// Type Scale (8px base, following brand guidelines)
+$font-size-root: 16px !default;
+$font-size-base: 18px !default;
+
+// Type scale in px (brand minimum sizes from PDF)
+$font-size-h1: 72px !default;
+$font-size-h2: 56px !default;
+$font-size-h3: 40px !default;
+$font-size-h4: 32px !default;
+$font-size-h5: 24px !default;
+$font-size-h6: 24px !default;
+$font-size-body: 18px !default;
+$font-size-body-lg: 24px !default;
+$font-size-small: 14px !default;
+$font-size-label: 24px !default;
+
+// Type scale map (for utility generation)
+$font-sizes: (
+  "xs": 12px,
+  "sm": 14px,
+  "base": 18px,
+  "md": 24px,
+  "lg": 32px,
+  "xl": 40px,
+  "2xl": 56px,
+  "3xl": 72px,
+  "4xl": 96px,
+  "5xl": 112px
+) !default;
+
+// Line Heights (from PDF)
+$line-height-headline: 1.1 !default;    // 110%
+$line-height-subhead: 1.2 !default;     // 120%
+$line-height-label: 1.3 !default;       // 130%
+$line-height-body: 1.4 !default;        // 140%
+$line-height-base: $line-height-body !default;
+$line-height-loose: 1.6 !default;
+
+$line-heights: (
+  "tight": 1.1,
+  "snug": 1.2,
+  "normal": 1.3,
+  "relaxed": 1.4,
+  "loose": 1.6
+) !default;
+
+// Letter Spacing
+$letter-spacing-tight: -0.02em !default;
+$letter-spacing-normal: 0 !default;
+$letter-spacing-wide: 0.02em !default;
+$letter-spacing-wider: 0.05em !default;
+$letter-spacing-widest: 0.1em !default;
+
+// -----------------------------------------------------------------------------
+// SPACING SYSTEM (8px base unit)
+// -----------------------------------------------------------------------------
+
+$spacer-base: 8px !default;
+
+// Spacing scale (multiples of 8)
+$spacer-0: 0 !default;
+$spacer-1: $spacer-base * 1 !default;   // 8px
+$spacer-2: $spacer-base * 2 !default;   // 16px
+$spacer-3: $spacer-base * 3 !default;   // 24px
+$spacer-4: $spacer-base * 4 !default;   // 32px
+$spacer-5: $spacer-base * 5 !default;   // 40px
+$spacer-6: $spacer-base * 6 !default;   // 48px
+$spacer-7: $spacer-base * 7 !default;   // 56px
+$spacer-8: $spacer-base * 8 !default;   // 64px
+$spacer-9: $spacer-base * 9 !default;   // 72px
+$spacer-10: $spacer-base * 10 !default; // 80px
+$spacer-12: $spacer-base * 12 !default; // 96px
+$spacer-16: $spacer-base * 16 !default; // 128px
+$spacer-20: $spacer-base * 20 !default; // 160px
+
+$spacers: (
+  0: $spacer-0,
+  1: $spacer-1,
+  2: $spacer-2,
+  3: $spacer-3,
+  4: $spacer-4,
+  5: $spacer-5,
+  6: $spacer-6,
+  7: $spacer-7,
+  8: $spacer-8,
+  9: $spacer-9,
+  10: $spacer-10,
+  12: $spacer-12,
+  16: $spacer-16,
+  20: $spacer-20
+) !default;
+
+// -----------------------------------------------------------------------------
+// BORDERS & RADIUS
+// -----------------------------------------------------------------------------
+
+$border-width: 1px !default;
+$border-width-2: 2px !default;
+$border-width-4: 4px !default;
+
+$border-color: $gt-divider !default;
+
+// Border radius (from PDF: max 50px for photos)
+$border-radius-none: 0 !default;
+$border-radius-sm: 4px !default;
+$border-radius-md: 8px !default;
+$border-radius-lg: 16px !default;
+$border-radius-xl: 24px !default;
+$border-radius-2xl: 32px !default;
+$border-radius-3xl: 50px !default;   // Photo max radius per brand guidelines
+$border-radius-full: 9999px !default;
+
+$border-radii: (
+  "none": $border-radius-none,
+  "sm": $border-radius-sm,
+  "md": $border-radius-md,
+  "lg": $border-radius-lg,
+  "xl": $border-radius-xl,
+  "2xl": $border-radius-2xl,
+  "3xl": $border-radius-3xl,
+  "full": $border-radius-full
+) !default;
+
+// Alias for photo radius
+$border-radius-photo: $border-radius-3xl !default;
+
+// -----------------------------------------------------------------------------
+// SHADOWS
+// -----------------------------------------------------------------------------
+
+$shadow-sm: 0 1px 2px 0 rgba($gt-black, 0.05) !default;
+$shadow-md: 0 4px 6px -1px rgba($gt-black, 0.1), 0 2px 4px -2px rgba($gt-black, 0.1) !default;
+$shadow-lg: 0 10px 15px -3px rgba($gt-black, 0.1), 0 4px 6px -4px rgba($gt-black, 0.1) !default;
+$shadow-xl: 0 20px 25px -5px rgba($gt-black, 0.1), 0 8px 10px -6px rgba($gt-black, 0.1) !default;
+$shadow-2xl: 0 25px 50px -12px rgba($gt-black, 0.25) !default;
+
+$shadows: (
+  "sm": $shadow-sm,
+  "md": $shadow-md,
+  "lg": $shadow-lg,
+  "xl": $shadow-xl,
+  "2xl": $shadow-2xl
+) !default;
+
+// -----------------------------------------------------------------------------
+// TRANSITIONS
+// -----------------------------------------------------------------------------
+
+$transition-duration-fast: 150ms !default;
+$transition-duration-base: 300ms !default;
+$transition-duration-slow: 500ms !default;
+
+$transition-timing: cubic-bezier(0.4, 0, 0.2, 1) !default;
+
+$transition-base: all $transition-duration-base $transition-timing !default;
+$transition-fast: all $transition-duration-fast $transition-timing !default;
+$transition-slow: all $transition-duration-slow $transition-timing !default;
+
+// -----------------------------------------------------------------------------
+// BREAKPOINTS
+// -----------------------------------------------------------------------------
+
+$breakpoint-xs: 0 !default;
+$breakpoint-sm: 576px !default;
+$breakpoint-md: 768px !default;
+$breakpoint-lg: 992px !default;
+$breakpoint-xl: 1200px !default;
+$breakpoint-2xl: 1400px !default;
+
+$breakpoints: (
+  "xs": $breakpoint-xs,
+  "sm": $breakpoint-sm,
+  "md": $breakpoint-md,
+  "lg": $breakpoint-lg,
+  "xl": $breakpoint-xl,
+  "2xl": $breakpoint-2xl
+) !default;
+
+// -----------------------------------------------------------------------------
+// GRID SYSTEM
+// -----------------------------------------------------------------------------
+
+$grid-columns: 8 !default;          // 8 columns per PDF guidelines
+$grid-rows: 6 !default;             // 6 rows per PDF guidelines
+$grid-gutter: $spacer-4 !default;   // 32px gutter
+
+// Container max widths
+$container-max-widths: (
+  "sm": 540px,
+  "md": 720px,
+  "lg": 960px,
+  "xl": 1140px,
+  "2xl": 1320px
+) !default;
+
+// -----------------------------------------------------------------------------
+// Z-INDEX
+// -----------------------------------------------------------------------------
+
+$zindex-dropdown: 1000 !default;
+$zindex-sticky: 1020 !default;
+$zindex-fixed: 1030 !default;
+$zindex-modal-backdrop: 1040 !default;
+$zindex-modal: 1050 !default;
+$zindex-popover: 1060 !default;
+$zindex-tooltip: 1070 !default;
+
+// -----------------------------------------------------------------------------
+// COMPONENT-SPECIFIC TOKENS
+// -----------------------------------------------------------------------------
+
+// Buttons
+$btn-padding-y: $spacer-2 !default;
+$btn-padding-x: $spacer-4 !default;
+$btn-border-radius: $border-radius-md !default;
+$btn-font-weight: $font-weight-semibold !default;
+$btn-font-family: $font-family-primary !default;
+$btn-font-size: 16px !default;
+
+// Cards
+$card-padding: $spacer-4 !default;
+$card-border-radius: $border-radius-lg !default;
+$card-shadow: $shadow-md !default;
+
+// Forms
+$input-padding-y: $spacer-2 !default;
+$input-padding-x: $spacer-3 !default;
+$input-border-radius: $border-radius-md !default;
+$input-border-color: $border-color !default;
+$input-focus-border-color: $gt-teal !default;
+
+// -----------------------------------------------------------------------------
+// DESIGN RULES (for validation)
+// IMPORTANT: These define forbidden color combinations per brand guidelines
+// -----------------------------------------------------------------------------
+
+// Colors that should NEVER be combined (per PDF page 23)
+$forbidden-color-pairs: (
+  ($gt-red, $gt-lavender),
+  ($gt-lavender, $gt-red)
+) !default;
+
+// Colors NOT suitable for typography (only for backgrounds/graphics)
+$non-typography-colors: ($gt-light-blue, $gt-lavender, $gt-beige) !default;

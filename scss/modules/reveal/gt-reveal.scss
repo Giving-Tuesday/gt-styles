@@ -1,0 +1,419 @@
+// =============================================================================
+// GIVINGTUESDAY REVEAL.JS THEME
+// =============================================================================
+// Custom theme for Reveal.js presentations following GT brand guidelines
+// Usage: Import this file in your Reveal.js configuration
+// =============================================================================
+
+@use '../../core' as *;
+
+// -----------------------------------------------------------------------------
+// REVEAL.JS VARIABLE OVERRIDES
+// -----------------------------------------------------------------------------
+
+// Background
+$backgroundColor: $gt-beige;
+$mainColor: $gt-navy;
+$headingColor: $gt-navy;
+
+// Links
+$linkColor: $gt-teal;
+$linkColorHover: $gt-teal-hover;
+
+// Text Selection
+$selectionBackgroundColor: gt-alpha($gt-teal, 0.3);
+$selectionColor: $gt-navy;
+
+// -----------------------------------------------------------------------------
+// BASE PRESENTATION STYLES
+// -----------------------------------------------------------------------------
+
+.reveal-viewport {
+  background: $backgroundColor;
+  background-color: $backgroundColor;
+}
+
+.reveal {
+  font-family: $font-family-secondary;
+  font-size: 42px;
+  font-weight: $font-weight-regular;
+  color: $mainColor;
+
+  // ---------------------------------------------------------------------------
+  // HEADINGS
+  // ---------------------------------------------------------------------------
+
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0 0 $spacer-4 0;
+    color: $headingColor;
+    font-family: $font-family-primary;
+    font-weight: $font-weight-semibold;
+    line-height: $line-height-headline;
+    letter-spacing: $letter-spacing-normal;
+    text-transform: none;
+    text-shadow: none;
+    word-wrap: break-word;
+  }
+
+  h1 {
+    font-size: 2.5em;
+    text-shadow: none;
+  }
+
+  h2 {
+    font-size: 1.6em;
+  }
+
+  h3 {
+    font-size: 1.3em;
+    font-weight: $font-weight-medium;
+  }
+
+  h4 {
+    font-size: 1em;
+    font-weight: $font-weight-medium;
+  }
+
+  // ---------------------------------------------------------------------------
+  // PARAGRAPHS & TEXT
+  // ---------------------------------------------------------------------------
+
+  p {
+    margin: $spacer-4 0;
+    line-height: $line-height-body;
+  }
+
+  // Ensure certain elements are displayed block
+  img, video, iframe {
+    max-width: 95%;
+    max-height: 95%;
+  }
+
+  strong, b {
+    font-weight: $font-weight-bold;
+  }
+
+  em {
+    font-style: italic;
+  }
+
+  // ---------------------------------------------------------------------------
+  // LINKS
+  // ---------------------------------------------------------------------------
+
+  a {
+    color: $linkColor;
+    text-decoration: none;
+    transition: $transition-fast;
+
+    &:hover {
+      color: $linkColorHover;
+      text-shadow: none;
+      border: none;
+    }
+  }
+
+  // ---------------------------------------------------------------------------
+  // LISTS
+  // ---------------------------------------------------------------------------
+
+  ol, dl, ul {
+    display: inline-block;
+    text-align: left;
+    margin: 0 0 0 $spacer-4;
+  }
+
+  ol {
+    list-style-type: decimal;
+  }
+
+  ul {
+    list-style-type: disc;
+
+    ul {
+      list-style-type: square;
+
+      ul {
+        list-style-type: circle;
+      }
+    }
+  }
+
+  ul ul, ul ol, ol ol, ol ul {
+    display: block;
+    margin-left: $spacer-5;
+  }
+
+  li {
+    margin-bottom: $spacer-2;
+  }
+
+  dt {
+    font-weight: $font-weight-bold;
+  }
+
+  dd {
+    margin-left: $spacer-5;
+  }
+
+  // ---------------------------------------------------------------------------
+  // BLOCKQUOTES
+  // ---------------------------------------------------------------------------
+
+  blockquote {
+    display: block;
+    position: relative;
+    width: 70%;
+    margin: $spacer-4 auto;
+    padding: $spacer-2 $spacer-4;
+    font-style: italic;
+    background: gt-alpha($gt-lavender, 0.3);
+    border-left: 4px solid $gt-red;
+    box-shadow: none;
+
+    p:first-child,
+    p:last-child {
+      display: inline-block;
+    }
+  }
+
+  q {
+    font-style: italic;
+  }
+
+  // ---------------------------------------------------------------------------
+  // CODE
+  // ---------------------------------------------------------------------------
+
+  pre {
+    display: block;
+    position: relative;
+    width: 90%;
+    margin: $spacer-4 auto;
+    text-align: left;
+    font-size: 0.55em;
+    font-family: $font-family-mono;
+    line-height: 1.2em;
+    word-wrap: break-word;
+    box-shadow: $shadow-lg;
+  }
+
+  code {
+    font-family: $font-family-mono;
+    text-transform: none;
+    tab-size: 2;
+  }
+
+  pre code {
+    display: block;
+    padding: $spacer-3;
+    overflow: auto;
+    max-height: 400px;
+    word-wrap: normal;
+    background: $gt-navy;
+    color: $gt-white;
+    border-radius: $border-radius-md;
+  }
+
+  // ---------------------------------------------------------------------------
+  // TABLES
+  // ---------------------------------------------------------------------------
+
+  table {
+    margin: auto;
+    border-collapse: collapse;
+    border-spacing: 0;
+
+    th {
+      font-weight: $font-weight-bold;
+      background: $gt-navy;
+      color: $gt-white;
+    }
+
+    th, td {
+      text-align: left;
+      padding: $spacer-2 $spacer-3;
+      border-bottom: 1px solid $gt-divider;
+    }
+
+    th[align="center"],
+    td[align="center"] {
+      text-align: center;
+    }
+
+    th[align="right"],
+    td[align="right"] {
+      text-align: right;
+    }
+
+    tbody tr:last-child th,
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+  }
+
+  // ---------------------------------------------------------------------------
+  // IMAGES
+  // ---------------------------------------------------------------------------
+
+  section img {
+    margin: $spacer-2 0;
+    border-radius: $border-radius-photo;
+
+    &.plain {
+      border-radius: 0;
+      box-shadow: none;
+    }
+  }
+
+  // ---------------------------------------------------------------------------
+  // PROGRESS BAR
+  // ---------------------------------------------------------------------------
+
+  .progress {
+    background: gt-alpha($gt-navy, 0.2);
+    color: $gt-red;
+
+    span {
+      background: $gt-red;
+      transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+    }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// SLIDE VARIANTS
+// -----------------------------------------------------------------------------
+
+// Title slide (first slide typically)
+.reveal .slides section.title-slide {
+  h1 {
+    color: $gt-red;
+    font-size: 3em;
+    margin-bottom: $spacer-4;
+  }
+
+  h2 {
+    color: $gt-navy;
+    font-size: 1.2em;
+    font-weight: $font-weight-regular;
+  }
+}
+
+// Section header slides
+.reveal .slides section.section-header {
+  background: $gt-navy;
+  color: $gt-white;
+
+  h1, h2, h3 {
+    color: $gt-white;
+  }
+}
+
+// Red accent slides
+.reveal .slides section.red-accent {
+  background: $gt-red;
+  color: $gt-white;
+
+  h1, h2, h3, h4, h5, h6 {
+    color: $gt-white;
+  }
+
+  a {
+    color: $gt-beige;
+
+    &:hover {
+      color: $gt-white;
+    }
+  }
+}
+
+// Light blue background slides
+.reveal .slides section.light-blue-bg {
+  background: $gt-light-blue;
+  color: $gt-navy;
+}
+
+// Beige background (default, but explicit)
+.reveal .slides section.beige-bg {
+  background: $gt-beige;
+}
+
+// White background slides
+.reveal .slides section.white-bg {
+  background: $gt-white;
+}
+
+// -----------------------------------------------------------------------------
+// UTILITY CLASSES
+// -----------------------------------------------------------------------------
+
+.reveal {
+  // Text colors
+  .text-red { color: $gt-red; }
+  .text-navy { color: $gt-navy; }
+  .text-teal { color: $gt-teal; }
+  .text-white { color: $gt-white; }
+
+  // Background colors
+  .bg-red { background-color: $gt-red; }
+  .bg-navy { background-color: $gt-navy; }
+  .bg-lavender { background-color: $gt-lavender; }
+  .bg-light-blue { background-color: $gt-light-blue; }
+  .bg-beige { background-color: $gt-beige; }
+  .bg-white { background-color: $gt-white; }
+
+  // Labels/overlines
+  .label {
+    @include label-text;
+    color: $gt-red;
+    margin-bottom: $spacer-2;
+    display: block;
+  }
+
+  // Two-column layout
+  .columns {
+    display: flex;
+    gap: $spacer-6;
+
+    .column {
+      flex: 1;
+    }
+  }
+
+  // Image with caption
+  figure {
+    margin: 0;
+
+    img {
+      border-radius: $border-radius-photo;
+    }
+
+    figcaption {
+      font-size: 0.6em;
+      color: $gt-copy;
+      margin-top: $spacer-2;
+    }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// PRINT STYLES
+// -----------------------------------------------------------------------------
+
+@media print {
+  .reveal {
+    .backgrounds {
+      background-color: $gt-white;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      color: $gt-navy !important;
+      text-shadow: none !important;
+    }
+
+    p, li {
+      color: $gt-black !important;
+    }
+  }
+}
